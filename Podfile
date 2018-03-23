@@ -4,8 +4,8 @@ target 'InHeart-Sleeping' do
 pod 'AFNetworking'
 pod 'YYModel'
 pod 'Masonry'
-pod 'IQKeyboardManager'
 pod 'MBProgressHUD'
 pod 'SDWebImage'
+pod 'IQKeyboardManager'
 end 
 

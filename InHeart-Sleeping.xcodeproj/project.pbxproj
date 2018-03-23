@@ -15,6 +15,20 @@
 		3D9446BA205FB3F80056A492 /* InHeart_SleepingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9446B9205FB3F80056A492 /* InHeart_SleepingTests.m */; };
 		3D9446C5205FB3F80056A492 /* InHeart_SleepingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9446C4205FB3F80056A492 /* InHeart_SleepingUITests.m */; };
 		3D9446E6205FB93B0056A492 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9446E2205FB93B0056A492 /* LaunchScreen.storyboard */; };
+		3D9446EF205FC07D0056A492 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9446ED205FC07D0056A492 /* Login.storyboard */; };
+		3D9446F32060B2710056A492 /* XJSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9446F22060B2710056A492 /* XJSLoginViewController.m */; };
+		3D9446F62060F4680056A492 /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9446F42060F4680056A492 /* Homepage.storyboard */; };
+		3D9446FD206236150056A492 /* XJSPatientsManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9446FC206236140056A492 /* XJSPatientsManagementViewController.m */; };
+		3D94470120623C040056A492 /* XJSPatientInfomationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94470020623C040056A492 /* XJSPatientInfomationCollectionViewCell.m */; };
+		3D944704206240DA0056A492 /* XJSCommonsDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D944703206240DA0056A492 /* XJSCommonsDefines.m */; };
+		3D944709206245230056A492 /* XJSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D944708206245230056A492 /* XJSUtilities.m */; };
+		3D94471220625ED50056A492 /* ZWPullMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94470C20625ED50056A492 /* ZWPullMenuCell.m */; };
+		3D94471320625ED50056A492 /* ZWPullMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D94470D20625ED50056A492 /* ZWPullMenuCell.xib */; };
+		3D94471420625ED50056A492 /* ZWPullMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94470F20625ED50056A492 /* ZWPullMenuModel.m */; };
+		3D94471520625ED50056A492 /* ZWPullMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94471120625ED50056A492 /* ZWPullMenuView.m */; };
+		3D94471820638F050056A492 /* XJSAddPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94471720638F050056A492 /* XJSAddPatientViewController.m */; };
+		3D94471B20638F490056A492 /* XJSPatientCommonInfomationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94471A20638F490056A492 /* XJSPatientCommonInfomationCell.m */; };
+		3D94471E2064A3A90056A492 /* XJSModifyInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94471D2064A3A90056A492 /* XJSModifyInformationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +64,33 @@
 		3D9446C4205FB3F80056A492 /* InHeart_SleepingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InHeart_SleepingUITests.m; sourceTree = "<group>"; };
 		3D9446C6205FB3F80056A492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D9446E3205FB93B0056A492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3D9446EE205FC07D0056A492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Login.storyboard; sourceTree = "<group>"; };
+		3D9446F12060B2710056A492 /* XJSLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSLoginViewController.h; sourceTree = "<group>"; };
+		3D9446F22060B2710056A492 /* XJSLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSLoginViewController.m; sourceTree = "<group>"; };
+		3D9446F52060F4680056A492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Homepage.storyboard; sourceTree = "<group>"; };
+		3D9446FB206236140056A492 /* XJSPatientsManagementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSPatientsManagementViewController.h; sourceTree = "<group>"; };
+		3D9446FC206236140056A492 /* XJSPatientsManagementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSPatientsManagementViewController.m; sourceTree = "<group>"; };
+		3D9446FF20623C040056A492 /* XJSPatientInfomationCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSPatientInfomationCollectionViewCell.h; sourceTree = "<group>"; };
+		3D94470020623C040056A492 /* XJSPatientInfomationCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSPatientInfomationCollectionViewCell.m; sourceTree = "<group>"; };
+		3D944702206240DA0056A492 /* XJSCommonsDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSCommonsDefines.h; sourceTree = "<group>"; };
+		3D944703206240DA0056A492 /* XJSCommonsDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSCommonsDefines.m; sourceTree = "<group>"; };
+		3D944705206241C00056A492 /* InHeart-Sleeping-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InHeart-Sleeping-Prefix.pch"; sourceTree = "<group>"; };
+		3D944706206245220056A492 /* XJSUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJSUtilities.h; sourceTree = "<group>"; };
+		3D944707206245230056A492 /* XJSUtilitiesDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJSUtilitiesDefines.h; sourceTree = "<group>"; };
+		3D944708206245230056A492 /* XJSUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJSUtilities.m; sourceTree = "<group>"; };
+		3D94470B20625ED50056A492 /* ZWPullMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWPullMenuCell.h; sourceTree = "<group>"; };
+		3D94470C20625ED50056A492 /* ZWPullMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWPullMenuCell.m; sourceTree = "<group>"; };
+		3D94470D20625ED50056A492 /* ZWPullMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZWPullMenuCell.xib; sourceTree = "<group>"; };
+		3D94470E20625ED50056A492 /* ZWPullMenuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWPullMenuModel.h; sourceTree = "<group>"; };
+		3D94470F20625ED50056A492 /* ZWPullMenuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWPullMenuModel.m; sourceTree = "<group>"; };
+		3D94471020625ED50056A492 /* ZWPullMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWPullMenuView.h; sourceTree = "<group>"; };
+		3D94471120625ED50056A492 /* ZWPullMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWPullMenuView.m; sourceTree = "<group>"; };
+		3D94471620638F050056A492 /* XJSAddPatientViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSAddPatientViewController.h; sourceTree = "<group>"; };
+		3D94471720638F050056A492 /* XJSAddPatientViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSAddPatientViewController.m; sourceTree = "<group>"; };
+		3D94471920638F490056A492 /* XJSPatientCommonInfomationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSPatientCommonInfomationCell.h; sourceTree = "<group>"; };
+		3D94471A20638F490056A492 /* XJSPatientCommonInfomationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSPatientCommonInfomationCell.m; sourceTree = "<group>"; };
+		3D94471C2064A3A90056A492 /* XJSModifyInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSModifyInformationViewController.h; sourceTree = "<group>"; };
+		3D94471D2064A3A90056A492 /* XJSModifyInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSModifyInformationViewController.m; sourceTree = "<group>"; };
 		8F481099EC924BA8A8C37C72 /* Pods-InHeart-Sleeping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InHeart-Sleeping.release.xcconfig"; path = "Pods/Target Support Files/Pods-InHeart-Sleeping/Pods-InHeart-Sleeping.release.xcconfig"; sourceTree = "<group>"; };
 		C957C71A344FE28435099BD8 /* libPods-InHeart-Sleeping.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InHeart-Sleeping.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D429C4CF6C11B9090CC7EA47 /* Pods-InHeart-Sleeping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InHeart-Sleeping.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InHeart-Sleeping/Pods-InHeart-Sleeping.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +160,7 @@
 				3D9446A9205FB3F80056A492 /* Assets.xcassets */,
 				3D9446AE205FB3F80056A492 /* Info.plist */,
 				3D9446AF205FB3F80056A492 /* main.m */,
+				3D944705206241C00056A492 /* InHeart-Sleeping-Prefix.pch */,
 			);
 			path = "InHeart-Sleeping";
 			sourceTree = "<group>";
@@ -145,6 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				3D9446E2205FB93B0056A492 /* LaunchScreen.storyboard */,
+				3D9446ED205FC07D0056A492 /* Login.storyboard */,
+				3D9446F42060F4680056A492 /* Homepage.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -152,6 +196,8 @@
 		3D9446E8205FB9760056A492 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				3D9446FA206235C50056A492 /* Homepage */,
+				3D9446F02060B2570056A492 /* Login */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -173,6 +219,11 @@
 		3D9446EB205FB9990056A492 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				3D944706206245220056A492 /* XJSUtilities.h */,
+				3D944708206245230056A492 /* XJSUtilities.m */,
+				3D944707206245230056A492 /* XJSUtilitiesDefines.h */,
+				3D944702206240DA0056A492 /* XJSCommonsDefines.h */,
+				3D944703206240DA0056A492 /* XJSCommonsDefines.m */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -180,8 +231,57 @@
 		3D9446EC205FB9A10056A492 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				3D94470A20625ED50056A492 /* ZWPullMenuView */,
 			);
 			path = Vendors;
+			sourceTree = "<group>";
+		};
+		3D9446F02060B2570056A492 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3D9446F12060B2710056A492 /* XJSLoginViewController.h */,
+				3D9446F22060B2710056A492 /* XJSLoginViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3D9446FA206235C50056A492 /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+				3D9446FE20623BC50056A492 /* ViewsAndCells */,
+				3D9446FB206236140056A492 /* XJSPatientsManagementViewController.h */,
+				3D9446FC206236140056A492 /* XJSPatientsManagementViewController.m */,
+				3D94471620638F050056A492 /* XJSAddPatientViewController.h */,
+				3D94471720638F050056A492 /* XJSAddPatientViewController.m */,
+				3D94471C2064A3A90056A492 /* XJSModifyInformationViewController.h */,
+				3D94471D2064A3A90056A492 /* XJSModifyInformationViewController.m */,
+			);
+			path = Homepage;
+			sourceTree = "<group>";
+		};
+		3D9446FE20623BC50056A492 /* ViewsAndCells */ = {
+			isa = PBXGroup;
+			children = (
+				3D9446FF20623C040056A492 /* XJSPatientInfomationCollectionViewCell.h */,
+				3D94470020623C040056A492 /* XJSPatientInfomationCollectionViewCell.m */,
+				3D94471920638F490056A492 /* XJSPatientCommonInfomationCell.h */,
+				3D94471A20638F490056A492 /* XJSPatientCommonInfomationCell.m */,
+			);
+			path = ViewsAndCells;
+			sourceTree = "<group>";
+		};
+		3D94470A20625ED50056A492 /* ZWPullMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				3D94470B20625ED50056A492 /* ZWPullMenuCell.h */,
+				3D94470C20625ED50056A492 /* ZWPullMenuCell.m */,
+				3D94470D20625ED50056A492 /* ZWPullMenuCell.xib */,
+				3D94470E20625ED50056A492 /* ZWPullMenuModel.h */,
+				3D94470F20625ED50056A492 /* ZWPullMenuModel.m */,
+				3D94471020625ED50056A492 /* ZWPullMenuView.h */,
+				3D94471120625ED50056A492 /* ZWPullMenuView.m */,
+			);
+			path = ZWPullMenuView;
 			sourceTree = "<group>";
 		};
 		9F3349552CF22DAFE0C70390 /* Frameworks */ = {
@@ -310,8 +410,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D9446F62060F4680056A492 /* Homepage.storyboard in Resources */,
+				3D94471320625ED50056A492 /* ZWPullMenuCell.xib in Resources */,
 				3D9446E6205FB93B0056A492 /* LaunchScreen.storyboard in Resources */,
 				3D9446AA205FB3F80056A492 /* Assets.xcassets in Resources */,
+				3D9446EF205FC07D0056A492 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,9 +487,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D94470120623C040056A492 /* XJSPatientInfomationCollectionViewCell.m in Sources */,
+				3D94471520625ED50056A492 /* ZWPullMenuView.m in Sources */,
+				3D9446F32060B2710056A492 /* XJSLoginViewController.m in Sources */,
 				3D9446A5205FB3F80056A492 /* ViewController.m in Sources */,
+				3D944709206245230056A492 /* XJSUtilities.m in Sources */,
+				3D94471B20638F490056A492 /* XJSPatientCommonInfomationCell.m in Sources */,
 				3D9446B0205FB3F80056A492 /* main.m in Sources */,
+				3D94471820638F050056A492 /* XJSAddPatientViewController.m in Sources */,
+				3D9446FD206236150056A492 /* XJSPatientsManagementViewController.m in Sources */,
+				3D94471220625ED50056A492 /* ZWPullMenuCell.m in Sources */,
+				3D944704206240DA0056A492 /* XJSCommonsDefines.m in Sources */,
+				3D94471420625ED50056A492 /* ZWPullMenuModel.m in Sources */,
 				3D9446A2205FB3F80056A492 /* AppDelegate.m in Sources */,
+				3D94471E2064A3A90056A492 /* XJSModifyInformationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +542,22 @@
 				3D9446E3205FB93B0056A492 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3D9446ED205FC07D0056A492 /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D9446EE205FC07D0056A492 /* Base */,
+			);
+			name = Login.storyboard;
+			sourceTree = "<group>";
+		};
+		3D9446F42060F4680056A492 /* Homepage.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D9446F52060F4680056A492 /* Base */,
+			);
+			name = Homepage.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -544,9 +674,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TD7NZ9YYK;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/InHeart-Sleeping/InHeart-Sleeping-Prefix.pch";
 				INFOPLIST_FILE = "InHeart-Sleeping/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.medvision.sleeping;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medvision.vrmedpro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -559,9 +692,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TD7NZ9YYK;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/InHeart-Sleeping/InHeart-Sleeping-Prefix.pch";
 				INFOPLIST_FILE = "InHeart-Sleeping/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.medvision.sleeping;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medvision.vrmedpro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 			};

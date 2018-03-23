@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "XJSLoginViewController.h"
+#import "XJSPatientsManagementViewController.h"
+
+#import <IQKeyboardManager.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +21,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.window makeKeyAndVisible];
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    //login status
+    [self checkLoginStatus:nil];
+    //keyboard manager
+    [IQKeyboardManager sharedManager].enable = YES;
+    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkLoginStatus:) name:XJSLoginStatusDidChange object:nil];
     return YES;
 }
 
@@ -45,6 +58,18 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Private methods
+- (void)checkLoginStatus:(NSNotification *)notification {
+    if ([notification.object boolValue]) {
+        XJSPatientsManagementViewController *patientsController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"XJSPatientsManagement"];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:patientsController];
+        self.window.rootViewController = navigationController;
+    } else {
+        XJSLoginViewController *loginController = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"XJSLogin"];
+        self.window.rootViewController = loginController;
+    }
 }
 
 
