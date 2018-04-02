@@ -7,6 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XJSPatientModel.h"
+@protocol XJSPatientInfomationCellDelegate<NSObject>
+- (void)didClickTraining:(XJSPatientModel *)model;
+- (void)didClickRecord:(XJSPatientModel *)model;
+@end
 
 @interface XJSPatientInfomationCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *avatarBackground;
@@ -16,5 +21,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *genderImageView;
 @property (weak, nonatomic) IBOutlet UILabel *diseaseLabel;
 @property (weak, nonatomic) IBOutlet UILabel *patientNumberLabel;
+
+@property (strong, nonatomic) XJSPatientModel *patientModel;
+
+@property (weak, nonatomic) id<XJSPatientInfomationCellDelegate> delegate;
 
 @end

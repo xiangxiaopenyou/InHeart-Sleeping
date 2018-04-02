@@ -7,6 +7,7 @@
 //
 
 #import "XJSLoginViewController.h"
+#import "XJSUserModel.h"
 
 @interface XJSLoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -32,7 +33,29 @@
 
 #pragma mark - IBAction
 - (IBAction)loginAction:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:XJSLoginStatusDidChange object:@YES];
+    [self.view endEditing:YES];
+    if (XJSIsNullObject(self.usernameTextField.text)) {
+        XJSShowHud(NO, @"请输入用户名");
+        return;
+    }
+    if (XJSIsNullObject(self.passwordTextField.text)) {
+        XJSShowHud(NO, @"请输入密码");
+        return;
+    }
+    [MBProgressHUD showHUDAddedTo:XJSKeyWindow animated:YES];
+    NSDictionary *params = @{@"username" : self.usernameTextField.text,
+                             @"password" : self.passwordTextField.text
+                             };
+    [XJSUserModel login:params handler:^(id object, NSString *msg) {
+        [MBProgressHUD hideHUDForView:XJSKeyWindow animated:YES];
+        if (object) {
+            XJSUserModel *model = (XJSUserModel *)object;
+            [[XJSUserManager sharedUserInfo] saveUserInfo:model];
+            [[NSNotificationCenter defaultCenter] postNotificationName:XJSLoginStatusDidChange object:@YES];
+        } else {
+            XJSShowHud(NO, msg);
+        }
+    }];
 }
 #pragma mark - Notification
 - (void)keyboardWillShow:(NSNotification *)notification {

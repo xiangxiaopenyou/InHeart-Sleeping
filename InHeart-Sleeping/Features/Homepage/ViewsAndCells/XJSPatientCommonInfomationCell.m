@@ -8,6 +8,8 @@
 
 #import "XJSPatientCommonInfomationCell.h"
 
+#import "XJSPatientModel.h"
+
 @implementation XJSPatientCommonInfomationCell
 
 - (void)awakeFromNib {
@@ -28,7 +30,7 @@
 - (void)setupContentView:(NSInteger)tableViewType index:(NSInteger)cellIndex {
     NSArray *leftItemArray = @[@"病案号", @"姓名", @"性别", @"年龄", @"医保卡", @"身份证"];
     NSArray *leftPlaceholderArray = @[@"病案号", @"姓名", @"选择性别", @"年龄", @"卡号", @"号码"];
-    NSArray *rightItemArray = @[@"症状", @"婚姻状态", @"文化程度", @"手机号", @"入院日期", @"家庭住址"];
+    NSArray *rightItemArray = @[@"症状", @"婚姻状况", @"文化程度", @"手机号", @"入院日期", @"家庭住址"];
     NSArray *rightPlaceholderArray = @[@"症状", @"选择婚姻状况", @"选择文化程度", @"号码", @"选择日期", @"住址"];
     if (tableViewType == 1) {
         self.itemNameLabel.text = leftItemArray[cellIndex];
@@ -74,8 +76,139 @@
         }
     }
 }
+- (void)addContentData:(XJSPatientModel *)model tableType:(NSInteger)tableViewType index:(NSInteger)cellIndex {
+    if (tableViewType == 1) {
+        switch (cellIndex) {
+            case 0: {
+                self.textField.text = model.patientNumber ? model.patientNumber : nil;
+            }
+                break;
+            case 1: {
+                self.textField.text = model.realname ? model.realname : nil;
+            }
+                break;
+            case 2: {
+                if (model.gender) {
+                    self.textField.text = model.gender.integerValue == XJSUserGenderMale ? @"男" : @"女";
+                } else {
+                    self.textField.text = nil;
+                }
+            }
+                break;
+            case 3: {
+                if (model.age) {
+                    self.textField.text = [NSString stringWithFormat:@"%d", model.age.intValue];
+                } else {
+                    self.textField.text = nil;
+                }
+            }
+                break;
+            case 4: {
+                self.textField.text = model.medicareNumber ? model.medicareNumber : nil;
+            }
+                break;
+            case 5: {
+                self.textField.text = model.identificationNumber ? model.identificationNumber : nil;
+            }
+                break;
+                
+            default:
+                break;
+        }
+    } else {
+        switch (cellIndex) {
+            case 0: {
+                self.textField.text = model.symptoms ? model.symptoms : nil;
+            }
+                break;
+            case 1: {
+                if (model.maritalStatus.integerValue == XJSMaritalStatusNone) {
+                    self.textField.text = @"保密";
+                } else if (model.maritalStatus.integerValue == XJSMaritalStatusNot) {
+                    self.textField.text = @"未婚";
+                } else {
+                    self.textField.text = @"已婚";
+                }
+            }
+                break;
+            case 2: {
+                switch (model.educationDegree.integerValue) {
+                    case XJSEducationDegreeNone: {
+                        self.textField.text = @"保密";
+                    }
+                        break;
+                    case XJSEducationDegreeFirst: {
+                        self.textField.text = @"博士";
+                    }
+                        break;
+                    case XJSEducationDegreeSecond: {
+                        self.textField.text = @"硕士";
+                    }
+                        break;
+                    case XJSEducationDegreeThird: {
+                        self.textField.text = @"本科";
+                    }
+                        break;
+                    case XJSEducationDegreeForth: {
+                        self.textField.text = @"大专";
+                    }
+                        break;
+                    case XJSEducationDegreeFifth: {
+                        self.textField.text = @"中专和中技";
+                    }
+                        break;
+                    case XJSEducationDegreeSixth: {
+                        self.textField.text = @"技工学校";
+                    }
+                        break;
+                    case XJSEducationDegreeSeventh: {
+                        self.textField.text = @"高中";
+                    }
+                        break;
+                    case XJSEducationDegreeEighth: {
+                        self.textField.text = @"初中";
+                    }
+                        break;
+                    case XJSEducationDegreeNinth: {
+                        self.textField.text = @"小学";
+                    }
+                        break;
+                    case XJSEducationDegreeTenth: {
+                        self.textField.text = @"文盲与半文盲";
+                    }
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }
+                break;
+            case 3: {
+                self.textField.text = model.phoneNumber ? model.phoneNumber : nil;
+            }
+                break;
+            case 4: {
+                self.textField.text = model.enterTime ? model.enterTime : nil;
+            }
+                break;
+            case 5: {
+                self.textField.text = model.address ? model.address : nil;
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }
+}
 - (void)dateChange:(UIDatePicker *)datePicker {
-    
+    NSDate *selectedDate = datePicker.date;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateString = [dateFormatter stringFromDate:selectedDate];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(dateDidChange:)]) {
+        [self.delegate dateDidChange:dateString];
+    }
 }
 
 @end

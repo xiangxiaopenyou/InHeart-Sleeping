@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XJSBaseViewController.h"
 
-@interface XJSPatientsManagementViewController : UIViewController
+@interface XJSPatientsManagementViewController : XJSBaseViewController
 
 @end

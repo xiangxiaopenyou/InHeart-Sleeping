@@ -10,3 +10,10 @@
 
 NSString * const XJSLoginStatusDidChange = @"XJSLoginStatusDidChange";
 
+NSString * const USERTOKEN = @"UserToken";
+NSString * const USERID = @"UserID";
+NSString * const USERNAME = @"Username";
+NSString * const USERREALNAME = @"UserRealname";
+
+NSString * const NETWORKERRORTIP = @"网络错误";
+

@@ -14,25 +14,30 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UITextField *contentTextField1;
 @property (weak, nonatomic) IBOutlet UITextField *contentTextField2;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *finishItem;
+@property (copy, nonatomic) NSString *oldNameString;
+@property (copy, nonatomic) NSString *titleString;
 
 @end
 
 @implementation XJSModifyInformationViewController
 
+#pragma mark - View controller life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSString *titleString = nil;
     switch (self.informationType) {
         case XJSUserInformationTypeName: {
-            titleString = @"姓名修改";
+            _titleString = @"姓名修改";
             self.contentTextField1.hidden = YES;
             self.titleLabel1.text = @"治疗师:";
             self.titleLabel2.text = @"更改为:";
+            _oldNameString = [[NSUserDefaults standardUserDefaults] stringForKey:USERREALNAME];
+            self.contentLabel.text = _oldNameString;
         }
             break;
         case XJSUserInformationTypePassword: {
-            titleString = @"密码修改";
+            _titleString = @"密码修改";
             self.contentLabel.hidden = YES;
             self.titleLabel1.text = @"新密码:";
             self.titleLabel2.text = @"请确认:";
@@ -40,23 +45,69 @@
             self.contentTextField2.secureTextEntry = YES;
         }
             break;
-        case XJSUserInformationTypePhone: {
-            titleString = @"手机号修改";
-            self.contentTextField1.hidden = YES;
-            self.titleLabel1.text = @"手机号:";
-            self.titleLabel2.text = @"更改为:";
-            self.contentTextField2.keyboardType = UIKeyboardTypeNumberPad;
-        }
-            break;
+//        case XJSUserInformationTypePhone: {
+//            titleString = @"手机号修改";
+//            self.contentTextField1.hidden = YES;
+//            self.titleLabel1.text = @"手机号:";
+//            self.titleLabel2.text = @"更改为:";
+//            self.contentTextField2.keyboardType = UIKeyboardTypeNumberPad;
+//        }
+//            break;
         default:
             break;
     }
-    self.title = titleString;
+    self.title = _titleString;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Action
+- (IBAction)finishAction:(id)sender {
+    [self.view endEditing:YES];
+    NSDictionary *params = [NSDictionary dictionary];
+    if (self.informationType == XJSUserInformationTypeName) {
+        params = @{@"name" : self.contentTextField2.text};
+    } else {
+        if (![self.contentTextField1.text isEqualToString:self.contentTextField2.text]) {
+            XJSShowHud(NO, @"两次密码输入不一致");
+            return;
+        }
+        params = @{@"password" : self.contentTextField2.text};
+    }
+    [MBProgressHUD showHUDAddedTo:XJSKeyWindow animated:YES];
+    [XJSUserModel modifyInformation:params handler:^(id object, NSString *msg) {
+        [MBProgressHUD hideHUDForView:XJSKeyWindow animated:YES];
+        if (object) {
+            if (self.informationType == XJSUserInformationTypeName) {
+                [[NSUserDefaults standardUserDefaults] setObject:self.contentTextField2.text forKey:USERREALNAME];
+            }
+            NSString *tipString = [NSString stringWithFormat:@"%@成功", _titleString];
+            XJSShowHud(YES, tipString);
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            XJSShowHud(NO, msg);
+        }
+    }];
+}
+- (IBAction)textFieldEditingChanged:(id)sender {
+    if (self.informationType == XJSUserInformationTypeName) {
+        if ([self.contentTextField2.text isEqualToString:_oldNameString] || XJSIsNullObject(self.contentTextField2.text)) {
+            self.finishItem.enabled = NO;
+        } else {
+            self.finishItem.enabled = YES;
+        }
+    } else {
+        if (XJSIsNullObject(self.contentTextField1.text) ||
+            XJSIsNullObject(self.contentTextField2.text) ||
+            self.contentTextField1.text.length != self.contentTextField2.text.length) {
+            self.finishItem.enabled = NO;
+        } else {
+            self.finishItem.enabled = YES;
+        }
+    }
 }
 
 /*

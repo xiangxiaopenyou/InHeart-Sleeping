@@ -13,5 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "XJSCommonsDefines.h"
 #import "XJSUtilitiesDefines.h"
+#import "XJSUserManager.h"
+#import <MBProgressHUD.h>
 
 #endif /* InHeart_Sleeping_Prefix_pch */

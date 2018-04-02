@@ -7,5 +7,6 @@ pod 'Masonry'
 pod 'MBProgressHUD'
 pod 'SDWebImage'
 pod 'IQKeyboardManager'
+pod 'MJRefresh'
 end 
 

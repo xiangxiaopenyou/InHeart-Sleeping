@@ -29,6 +29,7 @@
     //keyboard manager
     [IQKeyboardManager sharedManager].enable = YES;
     [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkLoginStatus:) name:XJSLoginStatusDidChange object:nil];
     return YES;
 }
@@ -62,7 +63,7 @@
 
 #pragma mark - Private methods
 - (void)checkLoginStatus:(NSNotification *)notification {
-    if ([notification.object boolValue]) {
+    if ([[XJSUserManager sharedUserInfo] isLogined]) {
         XJSPatientsManagementViewController *patientsController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"XJSPatientsManagement"];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:patientsController];
         self.window.rootViewController = navigationController;

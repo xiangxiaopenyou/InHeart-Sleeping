@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2A1F3D79F1107286A18A0BAF /* libPods-InHeart-Sleeping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C957C71A344FE28435099BD8 /* libPods-InHeart-Sleeping.a */; };
+		3D8A7F15206E140000271B93 /* XJSRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A7F14206E140000271B93 /* XJSRecordsViewController.m */; };
+		3D8A7F18206E2C5500271B93 /* XJSPatientDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A7F17206E2C5500271B93 /* XJSPatientDetailViewController.m */; };
 		3D9446A2205FB3F80056A492 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9446A1205FB3F80056A492 /* AppDelegate.m */; };
-		3D9446A5205FB3F80056A492 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9446A4205FB3F80056A492 /* ViewController.m */; };
 		3D9446AA205FB3F80056A492 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9446A9205FB3F80056A492 /* Assets.xcassets */; };
 		3D9446B0205FB3F80056A492 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9446AF205FB3F80056A492 /* main.m */; };
 		3D9446BA205FB3F80056A492 /* InHeart_SleepingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9446B9205FB3F80056A492 /* InHeart_SleepingTests.m */; };
@@ -29,6 +30,21 @@
 		3D94471820638F050056A492 /* XJSAddPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94471720638F050056A492 /* XJSAddPatientViewController.m */; };
 		3D94471B20638F490056A492 /* XJSPatientCommonInfomationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94471A20638F490056A492 /* XJSPatientCommonInfomationCell.m */; };
 		3D94471E2064A3A90056A492 /* XJSModifyInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94471D2064A3A90056A492 /* XJSModifyInformationViewController.m */; };
+		3D9447222064EA9D0056A492 /* XJSHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9447212064EA9D0056A492 /* XJSHttpManager.m */; };
+		3D9447252064EE910056A492 /* XJSBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9447242064EE910056A492 /* XJSBaseRequest.m */; };
+		3D944728206883520056A492 /* XJSBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D944727206883520056A492 /* XJSBaseModel.m */; };
+		3D94472B20688C650056A492 /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D94472920688C650056A492 /* Training.storyboard */; };
+		3D94472F2068C2BC0056A492 /* XJSTrainingCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94472E2068C2BC0056A492 /* XJSTrainingCenterViewController.m */; };
+		3D9447332068C5230056A492 /* XJSSceneCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9447322068C5230056A492 /* XJSSceneCollectionViewCell.m */; };
+		3D9447362068C7A10056A492 /* XJSTherapyTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9447352068C7A10056A492 /* XJSTherapyTitleCell.m */; };
+		3D94473A2068CF850056A492 /* XJSTherapyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9447392068CF850056A492 /* XJSTherapyModel.m */; };
+		3D94473D2068E0B80056A492 /* XJSSceneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94473C2068E0B80056A492 /* XJSSceneModel.m */; };
+		3D9447402068EE280056A492 /* XJSSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D94473F2068EE280056A492 /* XJSSearchView.m */; };
+		3D9447432068F0E90056A492 /* XJSSearchPatientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9447422068F0E90056A492 /* XJSSearchPatientsViewController.m */; };
+		3D944746206A161F0056A492 /* XJSPatientModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D944745206A161F0056A492 /* XJSPatientModel.m */; };
+		3D944749206A22E00056A492 /* XJSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D944748206A22E00056A492 /* XJSUserModel.m */; };
+		3D944754206B3CFC0056A492 /* XJSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D944753206B3CFC0056A492 /* XJSBaseViewController.m */; };
+		3D944758206B3EEF0056A492 /* XJSUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D944757206B3EEF0056A492 /* XJSUserManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,11 +65,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D8A7F13206E140000271B93 /* XJSRecordsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSRecordsViewController.h; sourceTree = "<group>"; };
+		3D8A7F14206E140000271B93 /* XJSRecordsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSRecordsViewController.m; sourceTree = "<group>"; };
+		3D8A7F16206E2C5500271B93 /* XJSPatientDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSPatientDetailViewController.h; sourceTree = "<group>"; };
+		3D8A7F17206E2C5500271B93 /* XJSPatientDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSPatientDetailViewController.m; sourceTree = "<group>"; };
 		3D94469D205FB3F80056A492 /* InHeart-Sleeping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InHeart-Sleeping.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9446A0205FB3F80056A492 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3D9446A1205FB3F80056A492 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3D9446A3205FB3F80056A492 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3D9446A4205FB3F80056A492 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3D9446A9205FB3F80056A492 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D9446AE205FB3F80056A492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D9446AF205FB3F80056A492 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,6 +109,35 @@
 		3D94471A20638F490056A492 /* XJSPatientCommonInfomationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSPatientCommonInfomationCell.m; sourceTree = "<group>"; };
 		3D94471C2064A3A90056A492 /* XJSModifyInformationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSModifyInformationViewController.h; sourceTree = "<group>"; };
 		3D94471D2064A3A90056A492 /* XJSModifyInformationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSModifyInformationViewController.m; sourceTree = "<group>"; };
+		3D9447202064EA9D0056A492 /* XJSHttpManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSHttpManager.h; sourceTree = "<group>"; };
+		3D9447212064EA9D0056A492 /* XJSHttpManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSHttpManager.m; sourceTree = "<group>"; };
+		3D9447232064EE910056A492 /* XJSBaseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSBaseRequest.h; sourceTree = "<group>"; };
+		3D9447242064EE910056A492 /* XJSBaseRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSBaseRequest.m; sourceTree = "<group>"; };
+		3D944726206883520056A492 /* XJSBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSBaseModel.h; sourceTree = "<group>"; };
+		3D944727206883520056A492 /* XJSBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSBaseModel.m; sourceTree = "<group>"; };
+		3D94472A20688C650056A492 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Training.storyboard; sourceTree = "<group>"; };
+		3D94472D2068C2BC0056A492 /* XJSTrainingCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSTrainingCenterViewController.h; sourceTree = "<group>"; };
+		3D94472E2068C2BC0056A492 /* XJSTrainingCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSTrainingCenterViewController.m; sourceTree = "<group>"; };
+		3D9447312068C5230056A492 /* XJSSceneCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSSceneCollectionViewCell.h; sourceTree = "<group>"; };
+		3D9447322068C5230056A492 /* XJSSceneCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSSceneCollectionViewCell.m; sourceTree = "<group>"; };
+		3D9447342068C7A10056A492 /* XJSTherapyTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSTherapyTitleCell.h; sourceTree = "<group>"; };
+		3D9447352068C7A10056A492 /* XJSTherapyTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSTherapyTitleCell.m; sourceTree = "<group>"; };
+		3D9447382068CF850056A492 /* XJSTherapyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSTherapyModel.h; sourceTree = "<group>"; };
+		3D9447392068CF850056A492 /* XJSTherapyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSTherapyModel.m; sourceTree = "<group>"; };
+		3D94473B2068E0B80056A492 /* XJSSceneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSSceneModel.h; sourceTree = "<group>"; };
+		3D94473C2068E0B80056A492 /* XJSSceneModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSSceneModel.m; sourceTree = "<group>"; };
+		3D94473E2068EE280056A492 /* XJSSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSSearchView.h; sourceTree = "<group>"; };
+		3D94473F2068EE280056A492 /* XJSSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSSearchView.m; sourceTree = "<group>"; };
+		3D9447412068F0E90056A492 /* XJSSearchPatientsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSSearchPatientsViewController.h; sourceTree = "<group>"; };
+		3D9447422068F0E90056A492 /* XJSSearchPatientsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSSearchPatientsViewController.m; sourceTree = "<group>"; };
+		3D944744206A161F0056A492 /* XJSPatientModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSPatientModel.h; sourceTree = "<group>"; };
+		3D944745206A161F0056A492 /* XJSPatientModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSPatientModel.m; sourceTree = "<group>"; };
+		3D944747206A22E00056A492 /* XJSUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSUserModel.h; sourceTree = "<group>"; };
+		3D944748206A22E00056A492 /* XJSUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSUserModel.m; sourceTree = "<group>"; };
+		3D944752206B3CFB0056A492 /* XJSBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJSBaseViewController.h; sourceTree = "<group>"; };
+		3D944753206B3CFC0056A492 /* XJSBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJSBaseViewController.m; sourceTree = "<group>"; };
+		3D944756206B3EEF0056A492 /* XJSUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSUserManager.h; sourceTree = "<group>"; };
+		3D944757206B3EEF0056A492 /* XJSUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSUserManager.m; sourceTree = "<group>"; };
 		8F481099EC924BA8A8C37C72 /* Pods-InHeart-Sleeping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InHeart-Sleeping.release.xcconfig"; path = "Pods/Target Support Files/Pods-InHeart-Sleeping/Pods-InHeart-Sleeping.release.xcconfig"; sourceTree = "<group>"; };
 		C957C71A344FE28435099BD8 /* libPods-InHeart-Sleeping.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InHeart-Sleeping.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D429C4CF6C11B9090CC7EA47 /* Pods-InHeart-Sleeping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InHeart-Sleeping.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InHeart-Sleeping/Pods-InHeart-Sleeping.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,11 +199,10 @@
 				3D9446EA205FB98C0056A492 /* Requests */,
 				3D9446E9205FB9820056A492 /* Models */,
 				3D9446E8205FB9760056A492 /* Features */,
+				3D94472C20689F010056A492 /* Storyboards */,
 				3D9446E1205FB93B0056A492 /* Base.lproj */,
 				3D9446A0205FB3F80056A492 /* AppDelegate.h */,
 				3D9446A1205FB3F80056A492 /* AppDelegate.m */,
-				3D9446A3205FB3F80056A492 /* ViewController.h */,
-				3D9446A4205FB3F80056A492 /* ViewController.m */,
 				3D9446A9205FB3F80056A492 /* Assets.xcassets */,
 				3D9446AE205FB3F80056A492 /* Info.plist */,
 				3D9446AF205FB3F80056A492 /* main.m */,
@@ -187,8 +233,6 @@
 			isa = PBXGroup;
 			children = (
 				3D9446E2205FB93B0056A492 /* LaunchScreen.storyboard */,
-				3D9446ED205FC07D0056A492 /* Login.storyboard */,
-				3D9446F42060F4680056A492 /* Homepage.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -196,6 +240,8 @@
 		3D9446E8205FB9760056A492 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				3D94474E206B3A4D0056A492 /* BaseController */,
+				3D94471F2064E91E0056A492 /* Training */,
 				3D9446FA206235C50056A492 /* Homepage */,
 				3D9446F02060B2570056A492 /* Login */,
 			);
@@ -205,6 +251,16 @@
 		3D9446E9205FB9820056A492 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3D94474A206A22EE0056A492 /* BaseModel */,
+				3D944755206B3ECE0056A492 /* UserInfo */,
+				3D944747206A22E00056A492 /* XJSUserModel.h */,
+				3D944748206A22E00056A492 /* XJSUserModel.m */,
+				3D9447382068CF850056A492 /* XJSTherapyModel.h */,
+				3D9447392068CF850056A492 /* XJSTherapyModel.m */,
+				3D94473B2068E0B80056A492 /* XJSSceneModel.h */,
+				3D94473C2068E0B80056A492 /* XJSSceneModel.m */,
+				3D944744206A161F0056A492 /* XJSPatientModel.h */,
+				3D944745206A161F0056A492 /* XJSPatientModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +268,10 @@
 		3D9446EA205FB98C0056A492 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				3D9447202064EA9D0056A492 /* XJSHttpManager.h */,
+				3D9447212064EA9D0056A492 /* XJSHttpManager.m */,
+				3D9447232064EE910056A492 /* XJSBaseRequest.h */,
+				3D9447242064EE910056A492 /* XJSBaseRequest.m */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -255,6 +315,12 @@
 				3D94471720638F050056A492 /* XJSAddPatientViewController.m */,
 				3D94471C2064A3A90056A492 /* XJSModifyInformationViewController.h */,
 				3D94471D2064A3A90056A492 /* XJSModifyInformationViewController.m */,
+				3D9447412068F0E90056A492 /* XJSSearchPatientsViewController.h */,
+				3D9447422068F0E90056A492 /* XJSSearchPatientsViewController.m */,
+				3D8A7F13206E140000271B93 /* XJSRecordsViewController.h */,
+				3D8A7F14206E140000271B93 /* XJSRecordsViewController.m */,
+				3D8A7F16206E2C5500271B93 /* XJSPatientDetailViewController.h */,
+				3D8A7F17206E2C5500271B93 /* XJSPatientDetailViewController.m */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -266,6 +332,8 @@
 				3D94470020623C040056A492 /* XJSPatientInfomationCollectionViewCell.m */,
 				3D94471920638F490056A492 /* XJSPatientCommonInfomationCell.h */,
 				3D94471A20638F490056A492 /* XJSPatientCommonInfomationCell.m */,
+				3D94473E2068EE280056A492 /* XJSSearchView.h */,
+				3D94473F2068EE280056A492 /* XJSSearchView.m */,
 			);
 			path = ViewsAndCells;
 			sourceTree = "<group>";
@@ -282,6 +350,64 @@
 				3D94471120625ED50056A492 /* ZWPullMenuView.m */,
 			);
 			path = ZWPullMenuView;
+			sourceTree = "<group>";
+		};
+		3D94471F2064E91E0056A492 /* Training */ = {
+			isa = PBXGroup;
+			children = (
+				3D9447302068C4EF0056A492 /* ViewsAndCells */,
+				3D94472D2068C2BC0056A492 /* XJSTrainingCenterViewController.h */,
+				3D94472E2068C2BC0056A492 /* XJSTrainingCenterViewController.m */,
+			);
+			path = Training;
+			sourceTree = "<group>";
+		};
+		3D94472C20689F010056A492 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3D9446ED205FC07D0056A492 /* Login.storyboard */,
+				3D9446F42060F4680056A492 /* Homepage.storyboard */,
+				3D94472920688C650056A492 /* Training.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		3D9447302068C4EF0056A492 /* ViewsAndCells */ = {
+			isa = PBXGroup;
+			children = (
+				3D9447312068C5230056A492 /* XJSSceneCollectionViewCell.h */,
+				3D9447322068C5230056A492 /* XJSSceneCollectionViewCell.m */,
+				3D9447342068C7A10056A492 /* XJSTherapyTitleCell.h */,
+				3D9447352068C7A10056A492 /* XJSTherapyTitleCell.m */,
+			);
+			path = ViewsAndCells;
+			sourceTree = "<group>";
+		};
+		3D94474A206A22EE0056A492 /* BaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D944726206883520056A492 /* XJSBaseModel.h */,
+				3D944727206883520056A492 /* XJSBaseModel.m */,
+			);
+			path = BaseModel;
+			sourceTree = "<group>";
+		};
+		3D94474E206B3A4D0056A492 /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				3D944752206B3CFB0056A492 /* XJSBaseViewController.h */,
+				3D944753206B3CFC0056A492 /* XJSBaseViewController.m */,
+			);
+			path = BaseController;
+			sourceTree = "<group>";
+		};
+		3D944755206B3ECE0056A492 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				3D944756206B3EEF0056A492 /* XJSUserManager.h */,
+				3D944757206B3EEF0056A492 /* XJSUserManager.m */,
+			);
+			path = UserInfo;
 			sourceTree = "<group>";
 		};
 		9F3349552CF22DAFE0C70390 /* Frameworks */ = {
@@ -410,6 +536,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D94472B20688C650056A492 /* Training.storyboard in Resources */,
 				3D9446F62060F4680056A492 /* Homepage.storyboard in Resources */,
 				3D94471320625ED50056A492 /* ZWPullMenuCell.xib in Resources */,
 				3D9446E6205FB93B0056A492 /* LaunchScreen.storyboard in Resources */,
@@ -489,17 +616,32 @@
 			files = (
 				3D94470120623C040056A492 /* XJSPatientInfomationCollectionViewCell.m in Sources */,
 				3D94471520625ED50056A492 /* ZWPullMenuView.m in Sources */,
+				3D94473D2068E0B80056A492 /* XJSSceneModel.m in Sources */,
 				3D9446F32060B2710056A492 /* XJSLoginViewController.m in Sources */,
-				3D9446A5205FB3F80056A492 /* ViewController.m in Sources */,
+				3D94473A2068CF850056A492 /* XJSTherapyModel.m in Sources */,
+				3D9447252064EE910056A492 /* XJSBaseRequest.m in Sources */,
 				3D944709206245230056A492 /* XJSUtilities.m in Sources */,
+				3D944746206A161F0056A492 /* XJSPatientModel.m in Sources */,
 				3D94471B20638F490056A492 /* XJSPatientCommonInfomationCell.m in Sources */,
+				3D9447402068EE280056A492 /* XJSSearchView.m in Sources */,
+				3D944749206A22E00056A492 /* XJSUserModel.m in Sources */,
 				3D9446B0205FB3F80056A492 /* main.m in Sources */,
+				3D9447432068F0E90056A492 /* XJSSearchPatientsViewController.m in Sources */,
+				3D8A7F18206E2C5500271B93 /* XJSPatientDetailViewController.m in Sources */,
+				3D944754206B3CFC0056A492 /* XJSBaseViewController.m in Sources */,
 				3D94471820638F050056A492 /* XJSAddPatientViewController.m in Sources */,
 				3D9446FD206236150056A492 /* XJSPatientsManagementViewController.m in Sources */,
+				3D9447362068C7A10056A492 /* XJSTherapyTitleCell.m in Sources */,
+				3D94472F2068C2BC0056A492 /* XJSTrainingCenterViewController.m in Sources */,
 				3D94471220625ED50056A492 /* ZWPullMenuCell.m in Sources */,
+				3D8A7F15206E140000271B93 /* XJSRecordsViewController.m in Sources */,
 				3D944704206240DA0056A492 /* XJSCommonsDefines.m in Sources */,
 				3D94471420625ED50056A492 /* ZWPullMenuModel.m in Sources */,
+				3D944758206B3EEF0056A492 /* XJSUserManager.m in Sources */,
+				3D9447332068C5230056A492 /* XJSSceneCollectionViewCell.m in Sources */,
+				3D944728206883520056A492 /* XJSBaseModel.m in Sources */,
 				3D9446A2205FB3F80056A492 /* AppDelegate.m in Sources */,
+				3D9447222064EA9D0056A492 /* XJSHttpManager.m in Sources */,
 				3D94471E2064A3A90056A492 /* XJSModifyInformationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,6 +702,14 @@
 			name = Homepage.storyboard;
 			sourceTree = "<group>";
 		};
+		3D94472920688C650056A492 /* Training.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D94472A20688C650056A492 /* Base */,
+			);
+			name = Training.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -567,6 +717,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -622,6 +773,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

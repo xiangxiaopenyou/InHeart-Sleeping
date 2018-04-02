@@ -10,8 +10,14 @@
 
 @implementation XJSPatientInfomationCollectionViewCell
 - (IBAction)recordAction:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didClickRecord:)]) {
+        [self.delegate didClickRecord:self.patientModel];
+    }
 }
 - (IBAction)trainingAction:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didClickTraining:)]) {
+        [self.delegate didClickTraining:self.patientModel];
+    }
 }
 
 @end

@@ -9,9 +9,38 @@
 #import <Foundation/Foundation.h>
 typedef NS_ENUM(NSInteger, XJSUserInformationType) {
     XJSUserInformationTypeName = 0,
-    XJSUserInformationTypePassword,
-    XJSUserInformationTypePhone
+    XJSUserInformationTypePassword
+    //XJSUserInformationTypePhone
+};
+typedef NS_ENUM(NSInteger, XJSUserGender) {
+    XJSUserGenderMale = 1,
+    XJSUserGenderFemale = 2
+};
+typedef NS_ENUM(NSInteger, XJSMaritalStatus) {
+    XJSMaritalStatusNone = 0,
+    XJSMaritalStatusNot,
+    XJSMaritalStatusMarried
+};
+typedef NS_ENUM(NSInteger, XJSEducationDegree) {
+    XJSEducationDegreeNone = 0,
+    XJSEducationDegreeFirst,
+    XJSEducationDegreeSecond,
+    XJSEducationDegreeThird,
+    XJSEducationDegreeForth,
+    XJSEducationDegreeFifth,
+    XJSEducationDegreeSixth,
+    XJSEducationDegreeSeventh,
+    XJSEducationDegreeEighth,
+    XJSEducationDegreeNinth,
+    XJSEducationDegreeTenth
 };
 
 //notification
 extern NSString * const XJSLoginStatusDidChange;
+
+extern NSString * const USERTOKEN;
+extern NSString * const USERID;
+extern NSString * const USERNAME;
+extern NSString * const USERREALNAME;
+
+extern NSString * const NETWORKERRORTIP;
