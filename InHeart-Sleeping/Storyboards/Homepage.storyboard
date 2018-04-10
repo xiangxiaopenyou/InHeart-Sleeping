@@ -224,7 +224,7 @@
             </objects>
             <point key="canvasLocation" x="121.87499999999999" y="38.28125"/>
         </scene>
-        <!--Search Patients View Controller-->
+        <!--搜索-->
         <scene sceneID="wV6-8d-BPR">
             <objects>
                 <viewController storyboardIdentifier="XJSSearchPatients" id="Jom-tV-hkA" customClass="XJSSearchPatientsViewController" sceneMemberID="viewController">
@@ -399,6 +399,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Jom-tV-hkA" id="yus-5Q-OFH"/>
+                                    <outlet property="delegate" destination="Jom-tV-hkA" id="hEI-oo-vO7"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -409,6 +413,7 @@
                             <constraint firstAttribute="trailing" secondItem="PmV-5Z-x3T" secondAttribute="trailing" id="lAl-AE-wOz"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="搜索" id="yZj-tm-eIe"/>
                     <connections>
                         <outlet property="resultCollectionView" destination="PmV-5Z-x3T" id="GKz-n7-QQc"/>
                     </connections>
@@ -445,13 +450,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3H-sC-eqA">
-                                        <rect key="frame" x="443.5" y="151" width="13" height="17"/>
+                                        <rect key="frame" x="439.5" y="151" width="13" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0岁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ok-Fd-SpG">
-                                        <rect key="frame" x="464.5" y="151" width="23" height="17"/>
+                                        <rect key="frame" x="460.5" y="151" width="23" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -478,7 +483,7 @@
                                     <constraint firstItem="IZ0-qw-bGt" firstAttribute="centerX" secondItem="e3i-eP-GRX" secondAttribute="centerX" id="9rh-vq-oi3"/>
                                     <constraint firstAttribute="height" constant="220" id="JEe-0D-ZtM"/>
                                     <constraint firstItem="3Rv-pL-WdY" firstAttribute="centerX" secondItem="e3i-eP-GRX" secondAttribute="centerX" id="KOT-O6-dyy"/>
-                                    <constraint firstItem="c3H-sC-eqA" firstAttribute="centerX" secondItem="e3i-eP-GRX" secondAttribute="centerX" constant="-12" id="aF1-L0-FQa"/>
+                                    <constraint firstItem="c3H-sC-eqA" firstAttribute="centerX" secondItem="e3i-eP-GRX" secondAttribute="centerX" constant="-16" id="aF1-L0-FQa"/>
                                     <constraint firstItem="2UA-MG-dsk" firstAttribute="centerX" secondItem="e3i-eP-GRX" secondAttribute="centerX" id="bKY-DO-6ly"/>
                                     <constraint firstItem="2UA-MG-dsk" firstAttribute="top" secondItem="IZ0-qw-bGt" secondAttribute="bottom" constant="8" id="ggR-C3-WQk"/>
                                     <constraint firstItem="rsu-4R-PnY" firstAttribute="top" secondItem="c3H-sC-eqA" secondAttribute="bottom" constant="5" id="tda-B4-hYB"/>
@@ -928,12 +933,13 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="leftTableView" destination="lm7-Yj-tuP" id="XcT-NH-MQo"/>
+                        <outlet property="rightItem" destination="uN5-69-uq8" id="C3D-c7-s3E"/>
                         <outlet property="rightTableView" destination="ikx-Xz-GB9" id="ddo-Pp-Feb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vpd-Ub-NMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-309" y="996"/>
+            <point key="canvasLocation" x="-309.375" y="995.3125"/>
         </scene>
         <!--Modify Information View Controller-->
         <scene sceneID="DP1-xy-YJw">

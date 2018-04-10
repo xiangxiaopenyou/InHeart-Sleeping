@@ -14,4 +14,5 @@
 @property (copy, nonatomic) NSString *introduction;
 @property (copy, nonatomic) NSString *coverPictureUrl;
 + (void)scenesList:(NSString *)therapyId page:(NSNumber *)paging handler:(RequestResultHandler)handler;
++ (void)playScene:(NSDictionary *)params handler:(RequestResultHandler)handler;
 @end

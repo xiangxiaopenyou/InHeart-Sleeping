@@ -24,4 +24,13 @@
         }
     }];
 }
++ (void)playScene:(NSDictionary *)params handler:(RequestResultHandler)handler {
+    [[XJSBaseRequest new] postRequest:params requestURLString:@"playScene" result:^(id object, NSString *msg) {
+        if (object) {
+            !handler ?: handler(object, nil);
+        } else {
+            !handler ?: handler(nil, msg);
+        }
+    }];
+}
 @end

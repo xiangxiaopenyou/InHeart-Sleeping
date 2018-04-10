@@ -8,14 +8,12 @@
 
 #import "XJSPatientsManagementViewController.h"
 #import "XJSAddPatientViewController.h"
-#import "XJSModifyInformationViewController.h"
 #import "XJSTrainingCenterViewController.h"
 #import "XJSSearchPatientsViewController.h"
 #import "XJSPatientDetailViewController.h"
+#import "XJSTrainingRecordsViewController.h"
 
 #import "XJSPatientInfomationCollectionViewCell.h"
-
-#import "ZWPullMenuView.h"
 
 #import "XJSPatientModel.h"
 
@@ -28,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) UIButton *searchButton;
 @property (nonatomic, strong) UIButton *addButton;
+@property (strong, nonatomic) UILabel *emptyLabel;
 
 @property (nonatomic) NSInteger paging;
 @property (strong, nonatomic) NSMutableArray *patientsArray;
@@ -41,16 +40,23 @@
     UIBarButtonItem *searchItem = [[UIBarButtonItem alloc] initWithCustomView:self.searchButton];
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:self.addButton];
     self.navigationItem.leftBarButtonItems = @[searchItem, addItem];
-    [self.userButton addTarget:self action:@selector(userAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.moreButton addTarget:self action:@selector(moreAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    //collection footer view
+    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView"];
     
     [MBProgressHUD showHUDAddedTo:XJSKeyWindow animated:YES];
     _paging = 1;
     [self fetchPatientsList];
     
     [self addRefreshView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(patientDidDelete:) name:XJSPatientDidDelete object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(patientInformationsDidModify:) name:XJSPatientInformationsDidModify object:nil];
 }
-
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:XJSPatientDidDelete object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:XJSPatientInformationsDidModify object:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -95,60 +101,53 @@
                 _paging += 1;
             }
             dispatch_async(dispatch_get_main_queue(), ^{
+                self.emptyLabel.text = self.patientsArray.count > 0 ? nil : @"暂无患者";
                 [self.collectionView reloadData];
             });
         } else {
             XJSShowHud(NO, msg);
+            self.emptyLabel.text = @"请检查网络";
+        }
+    }];
+}
+#pragma mark - Notification
+- (void)patientDidDelete:(NSNotification *)notification {
+    XJSPatientModel *tempModel = (XJSPatientModel *)notification.object;
+    NSArray *tempArray = [self.patientsArray copy];
+    [tempArray enumerateObjectsUsingBlock:^(XJSPatientModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.id isEqualToString:tempModel.id]) {
+            [self.patientsArray removeObjectAtIndex:idx];
+            //[self.collectionView deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:idx inSection:0]]];
+            if (self.patientsArray.count == 0) {
+                self.emptyLabel.text = @"暂无患者";
+            }
+            [self.collectionView reloadData];
+        }
+    }];
+    
+}
+- (void)patientInformationsDidModify:(NSNotification *)notification {
+    XJSPatientModel *tempModel = (XJSPatientModel *)notification.object;
+    NSArray *tempArray = [self.patientsArray copy];
+    [tempArray enumerateObjectsUsingBlock:^(XJSPatientModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.id isEqualToString:tempModel.id]) {
+            [self.patientsArray replaceObjectAtIndex:idx withObject:tempModel];
+            [self.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:idx inSection:0]]];
         }
     }];
 }
 
-
 #pragma mark - Action
 - (void)searchAction {
     XJSSearchPatientsViewController *searchController = [self.storyboard instantiateViewControllerWithIdentifier:@"XJSSearchPatients"];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:searchController];
-    [self presentViewController:navigationController animated:NO completion:nil];
+    [self.navigationController pushViewController:searchController animated:NO];
 }
 - (void)addAction {
     XJSAddPatientViewController *addController = [self.storyboard instantiateViewControllerWithIdentifier:@"XJSAddPatient"];
+    addController. addBlock = ^{
+        [self.collectionView.mj_header beginRefreshing];
+    };
     [self.navigationController pushViewController:addController animated:YES];
-}
-- (void)userAction {
-    NSArray *titlesArray = @[@"姓名修改", @"密码修改"/*, @"手机号修改"*/];
-    NSArray *imagesArray = @[@"setting_name", @"setting_password"/*, @"setting_phone"*/];
-    ZWPullMenuView *menuView = [ZWPullMenuView pullMenuAnchorView:self.userButton titleArray:titlesArray imageArray:imagesArray];
-    menuView.zwPullMenuStyle = PullMenuLightStyle;
-    menuView.blockSelectedMenu = ^(NSInteger menuRow) {
-        XJSModifyInformationViewController *modifyInformationController = [self.storyboard instantiateViewControllerWithIdentifier:@"XJSModifyInformation"];
-        modifyInformationController.informationType = menuRow;
-        [self.navigationController pushViewController:modifyInformationController animated:YES];
-    };
-}
-- (void)moreAction {
-    NSArray *titlesArray = @[@"注销", @"清理缓存", @"关于系统"];
-    NSArray *imagesArray = @[@"system_logout", @"system_clean", @"system_about"];
-    ZWPullMenuView *menuView = [ZWPullMenuView pullMenuAnchorView:self.moreButton titleArray:titlesArray imageArray:imagesArray];
-    menuView.zwPullMenuStyle = PullMenuLightStyle;
-    menuView.blockSelectedMenu = ^(NSInteger menuRow) {
-        switch (menuRow) {
-            case 0: {
-                [[XJSUserManager sharedUserInfo] removeUserInfo];
-                [[NSNotificationCenter defaultCenter] postNotificationName:XJSLoginStatusDidChange object:@NO];
-            }
-                break;
-            case 1: {
-                
-            }
-                break;
-            case 2: {
-                
-            }
-                break;
-            default:
-                break;
-        }
-    };
 }
 #pragma mark - Patient infomation cell delegate
 - (void)didClickTraining:(XJSPatientModel *)model {
@@ -157,7 +156,9 @@
     [self.navigationController pushViewController:trainingCenterController animated:YES];
 }
 - (void)didClickRecord:(XJSPatientModel *)model {
-    
+    XJSTrainingRecordsViewController *recordsController = [[UIStoryboard storyboardWithName:@"Training" bundle:nil] instantiateViewControllerWithIdentifier:@"XJSTrainingRecords"];
+    recordsController.patientModel = model;
+    [self.navigationController pushViewController:recordsController animated:YES];
 }
 
 #pragma mark - Collection view data source
@@ -176,6 +177,15 @@
     cell.diseaseLabel.text = patientModel.symptoms;
     return cell;
 }
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if (kind == UICollectionElementKindSectionFooter) {
+        UICollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView" forIndexPath:indexPath];
+        [footerView addSubview:self.emptyLabel];
+        return footerView;
+    }
+    return nil;
+}
+
 #pragma mark - Collection view delegate flow layout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return (CGSize){kXJSPatientInfoCellWidth, kXJSPatientInfoCellHeight};
@@ -188,6 +198,9 @@
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 10.f;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    return self.patientsArray.count > 0 ? (CGSize){0, 0} : (CGSize){XJSScreenWidth, XJSScreenHeight - 64};
 }
 #pragma mark - Collection view delegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -225,6 +238,15 @@
         [_addButton addTarget:self action:@selector(addAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _addButton;
+}
+- (UILabel *)emptyLabel {
+    if (!_emptyLabel) {
+        _emptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, XJSScreenWidth, XJSScreenHeight - 300)];
+        _emptyLabel.textColor = XJSHexRGBColorWithAlpha(0x999999, 1);
+        _emptyLabel.font = XJSBoldSystemFont(15);
+        _emptyLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _emptyLabel;
 }
 - (NSMutableArray *)patientsArray {
     if (!_patientsArray) {

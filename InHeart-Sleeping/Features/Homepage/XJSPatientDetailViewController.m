@@ -7,6 +7,9 @@
 //
 
 #import "XJSPatientDetailViewController.h"
+#import "XJSAddPatientViewController.h"
+
+#import "XLAlertControllerObject.h"
 
 #import "XJSPatientModel.h"
 
@@ -109,7 +112,7 @@
             break;
     }
     self.maritalLabel.text = [NSString stringWithFormat:@"婚姻状况：%@", maritalString];
-    self.enterTimeLabel.text = [NSString stringWithFormat:@"入院时间：%@", [model.enterTime substringToIndex:9]];
+    self.enterTimeLabel.text = [NSString stringWithFormat:@"入院时间：%@", [model.enterTime substringToIndex:10]];
     self.phoneLabel.text = XJSIsNullObject(model.phoneNumber)? @"手机号码：未知" : [NSString stringWithFormat:@"手机号码：%@", model.phoneNumber];
     self.medicareLabel.text = XJSIsNullObject(model.medicareNumber)? @"医保卡号：未知" : [NSString stringWithFormat:@"医保卡号：%@", model.medicareNumber];
     self.identificationLabel.text = XJSIsNullObject(model.identificationNumber)? @"身份证号：未知" : [NSString stringWithFormat:@"身份证号：%@", model.identificationNumber];
@@ -119,8 +122,20 @@
 
 #pragma mark - Action
 - (IBAction)deleteAction:(id)sender {
+    [XLAlertControllerObject showWithTitle:@"确定删除该患者吗？" message:nil cancelTitle:@"取消" ensureTitle:@"删除" ensureBlock:^{
+        [self deletePatientRequest];
+    }];
 }
 - (IBAction)modifyAction:(id)sender {
+    XJSAddPatientViewController *addPatientController = [self.storyboard instantiateViewControllerWithIdentifier:@"XJSAddPatient"];
+    addPatientController.patientModel = self.patientModel;
+    addPatientController.isModifyInformations = YES;
+    addPatientController.modifyBlock = ^(XJSPatientModel *model) {
+        self.patientModel = model;
+        [self fetchPatientDetail];
+        [[NSNotificationCenter defaultCenter] postNotificationName:XJSPatientInformationsDidModify object:self.patientModel];
+    };
+    [self.navigationController pushViewController:addPatientController animated:YES];
 }
 
 #pragma mark - Request
@@ -133,6 +148,19 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self setupInformations:self.patientModel];
             });
+        } else {
+            XJSShowHud(NO, msg);
+        }
+    }];
+}
+- (void)deletePatientRequest {
+    [MBProgressHUD showHUDAddedTo:XJSKeyWindow animated:YES];
+    [XJSPatientModel deletePatient:self.patientModel.id handle:^(id object, NSString *msg) {
+        [MBProgressHUD hideHUDForView:XJSKeyWindow animated:YES];
+        if (object) {
+            XJSShowHud(YES, @"删除成功");
+            [self.navigationController popViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter] postNotificationName:XJSPatientDidDelete object:self.patientModel];
         } else {
             XJSShowHud(NO, msg);
         }

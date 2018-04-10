@@ -7,6 +7,9 @@
 //
 
 #import "XJSBaseViewController.h"
+#import "XJSModifyInformationViewController.h"
+#import "ZWPullMenuView.h"
+#import "XLAlertControllerObject.h"
 
 @interface XJSBaseViewController ()
 
@@ -33,6 +36,46 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Action
+- (void)userAction {
+    NSArray *titlesArray = @[@"姓名修改", @"密码修改"/*, @"手机号修改"*/];
+    NSArray *imagesArray = @[@"setting_name", @"setting_password"/*, @"setting_phone"*/];
+    ZWPullMenuView *menuView = [ZWPullMenuView pullMenuAnchorView:self.userButton titleArray:titlesArray imageArray:imagesArray];
+    menuView.zwPullMenuStyle = PullMenuLightStyle;
+    menuView.blockSelectedMenu = ^(NSInteger menuRow) {
+        XJSModifyInformationViewController *modifyInformationController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"XJSModifyInformation"];
+        modifyInformationController.informationType = menuRow;
+        [self.navigationController pushViewController:modifyInformationController animated:YES];
+    };
+}
+- (void)moreAction {
+    NSArray *titlesArray = @[@"注销", /*@"清理缓存",*/ @"关于系统"];
+    NSArray *imagesArray = @[@"system_logout", /*@"system_clean",*/ @"system_about"];
+    ZWPullMenuView *menuView = [ZWPullMenuView pullMenuAnchorView:self.moreButton titleArray:titlesArray imageArray:imagesArray];
+    menuView.zwPullMenuStyle = PullMenuLightStyle;
+    menuView.blockSelectedMenu = ^(NSInteger menuRow) {
+        switch (menuRow) {
+            case 0: {
+                [XLAlertControllerObject showWithTitle:@"确定要注销吗？" message:nil cancelTitle:@"取消" ensureTitle:@"注销" ensureBlock:^{
+                    [[XJSUserManager sharedUserInfo] removeUserInfo];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:XJSLoginStatusDidChange object:@NO];
+                }];
+            }
+                break;
+            case 1: {
+                
+            }
+                break;
+//            case 2: {
+//
+//            }
+//                break;
+            default:
+                break;
+        }
+    };
+}
+
 /*
 #pragma mark - Navigation
 
@@ -51,6 +94,7 @@
         [_userButton setTitleColor:XJSHexRGBColorWithAlpha(0x666666, 1) forState:UIControlStateNormal];
         _userButton.titleLabel.font = [UIFont systemFontOfSize:16];
         [_userButton setTitleEdgeInsets:UIEdgeInsetsMake(0, - 40, 0, 0)];
+        [_userButton addTarget:self action:@selector(userAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _userButton;
 }
@@ -59,6 +103,7 @@
         _moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _moreButton.frame = CGRectMake(0, 0, 40, 40);
         [_moreButton setImage:[UIImage imageNamed:@"navigation_more"] forState:UIControlStateNormal];
+        [_moreButton addTarget:self action:@selector(moreAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _moreButton;
 }

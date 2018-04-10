@@ -7,13 +7,16 @@
 //
 
 #import "XJSTrainingCenterViewController.h"
+#import "XJSTrainingRecordsViewController.h"
 
 #import "XJSTherapyTitleCell.h"
 #import "XJSSceneCollectionViewCell.h"
+#import "XJSChooseDevicesView.h"
 
 #import "XJSTherapyModel.h"
 #import "XJSSceneModel.h"
 #import "XJSPatientModel.h"
+#import "XJSDeviceModel.h"
 
 #import <UIImageView+WebCache.h>
 #import <MJRefresh.h>
@@ -33,11 +36,14 @@
 @property (weak, nonatomic) IBOutlet UIView *viewOfTherapies;
 
 @property (strong, nonatomic) UITableView *therapyTableView;
+@property (strong, nonatomic) XJSChooseDevicesView *devicesView;
 
 @property (copy, nonatomic) NSArray *therapiesArray;
 @property (strong, nonatomic) NSIndexPath *selectedTherapyIndexPath;
 @property (strong, nonatomic) NSMutableArray *scenesArray;
 @property (nonatomic) NSInteger scenePaging;
+@property (copy, nonatomic) NSArray *devicesArray;
+@property (strong, nonatomic) XJSDeviceModel *selectedDevice;
 
 @end
 
@@ -61,6 +67,10 @@
     [self fetchTherapyList];
     
     [self addRefreshView];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self fetchDevicesList];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,6 +105,12 @@
     self.attentionLabel.text = therapyModel.attention;
 }
 
+#pragma mark - Action
+- (IBAction)recordAction:(id)sender {
+    XJSTrainingRecordsViewController *recordsController = [self.storyboard instantiateViewControllerWithIdentifier:@"XJSTrainingRecords"];
+    recordsController.patientModel = self.patientModel;
+    [self.navigationController pushViewController:recordsController animated:true];
+}
 #pragma mark - Requests
 - (void)fetchTherapyList {
     [XJSTherapyModel therapiesList:^(id object, NSString *msg) {
@@ -141,7 +157,28 @@
         }
     }];
 }
-
+- (void)fetchDevicesList {
+    [XJSDeviceModel devicesList:^(id object, NSString *msg) {
+        if (object) {
+            _devicesArray = [(NSArray *)object copy];
+        }
+    }];
+}
+- (void)playRequest:(NSString *)deviceId scene:(NSString *)sceneId {
+    [MBProgressHUD showHUDAddedTo:XJSKeyWindow animated:YES];
+    NSDictionary *params = @{@"userId" : deviceId,
+                             @"content" : sceneId,
+                             @"patientsId" : self.patientModel.id
+                             };
+    [XJSSceneModel playScene:params handler:^(id object, NSString *msg) {
+        [MBProgressHUD hideHUDForView:XJSKeyWindow animated:YES];
+        if (object) {
+            XJSShowHud(YES, @"已经发送播放指令");
+        } else {
+            XJSShowHud(NO, msg);
+        }
+    }];
+}
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _therapiesArray.count;
@@ -164,6 +201,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath != _selectedTherapyIndexPath) {
         _selectedTherapyIndexPath = indexPath;
+        [self setupTherapyInformations];
         [self fetchSceneList];
     }
 }
@@ -195,6 +233,25 @@
 }
 
 #pragma mark - Collection view delegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.devicesArray.count > 0) {
+        [self.devicesView show];
+        if (!self.selectedDevice) {
+            self.selectedDevice = self.devicesArray[0];
+        }
+        [self.devicesView setupContentData:self.devicesArray device:self.selectedDevice];
+        XJSSceneModel *scenesModel = self.scenesArray[indexPath.row];
+        __weak __typeof(self) weakSelf = self;
+        self.devicesView.comfirmBlock = ^(XJSDeviceModel *model) {
+            __strong __typeof(weakSelf) strongSelf = weakSelf;
+            if (model) {
+                [strongSelf playRequest:model.deviceId scene:scenesModel.id];
+            }
+        };
+    } else {
+        XJSShowHud(NO, @"暂无可用播放设备");
+    }
+}
 
 /*
 #pragma mark - Navigation
@@ -225,6 +282,12 @@
         _scenesArray = [[NSMutableArray alloc] init];
     }
     return _scenesArray;
+}
+- (XJSChooseDevicesView *)devicesView {
+    if (!_devicesView) {
+        _devicesView = [[XJSChooseDevicesView alloc] initWithFrame:XJSKeyWindow.bounds];
+    }
+    return _devicesView;
 }
 
 @end

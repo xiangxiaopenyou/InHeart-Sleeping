@@ -29,7 +29,13 @@
         if ([responseObject[@"success"] boolValue]) {
             !handler ?: handler(responseObject[@"data"], nil);
         } else {
-            !handler ?: handler(nil, responseObject[@"message"]);
+            if ([responseObject[@"code"] integerValue] == 97) {
+                !handler ?: handler(nil, responseObject[@"message"]);
+                [[XJSUserManager sharedUserInfo] removeUserInfo];
+                [[NSNotificationCenter defaultCenter] postNotificationName:XJSLoginStatusDidChange object:@NO];
+            } else {
+                !handler ?: handler(nil, responseObject[@"message"]);
+            }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         !handler ?: handler(nil, NETWORKERRORTIP);

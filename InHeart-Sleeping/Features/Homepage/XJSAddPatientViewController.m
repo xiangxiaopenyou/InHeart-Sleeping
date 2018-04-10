@@ -13,6 +13,7 @@
 @interface XJSAddPatientViewController () <UITableViewDelegate, UITableViewDataSource, XJSPatientCommonInfomationCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
 @property (weak, nonatomic) IBOutlet UITableView *rightTableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *rightItem;
 
 @end
 
@@ -21,6 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (self.isModifyInformations) {
+        self.title = @"修改患者信息";
+        self.rightItem.title = @"修改";
+    }
     if (!self.patientModel.maritalStatus) {
         self.patientModel.maritalStatus = @(XJSMaritalStatusNone);
     }
@@ -64,6 +69,10 @@
         XJSShowHud(NO, @"请输入症状");
         return;
     }
+    NSString *timeString = self.patientModel.enterTime;
+    if (timeString.length == 10) {
+        timeString = [timeString stringByAppendingString:@" 00:00:00"];
+    }
     NSMutableDictionary *params = [@{@"patientNumber" : self.patientModel.patientNumber,
                                      @"realname": self.patientModel.realname,
                                      @"gender" : self.patientModel.gender,
@@ -71,7 +80,7 @@
                                      @"symptoms" : self.patientModel.symptoms,
                                      @"maritalStatus" : self.patientModel.maritalStatus,
                                      @"educationDegree" : self.patientModel.educationDegree,
-                                     @"enterTime" : [self.patientModel.enterTime stringByAppendingString:@" 00:00:00"]
+                                     @"enterTime" : timeString
                                      } mutableCopy];
     if (!XJSIsNullObject(self.patientModel.medicareNumber)) {
         [params setObject:self.patientModel.medicareNumber forKey:@"medicareNumber"];
@@ -86,15 +95,35 @@
         [params setObject:self.patientModel.address forKey:@"address"];
     }
     [MBProgressHUD showHUDAddedTo:XJSKeyWindow animated:YES];
-    [XJSPatientModel addPatient:params handler:^(id object, NSString *msg) {
-        [MBProgressHUD hideHUDForView:XJSKeyWindow animated:YES];
-        if (object) {
-            XJSShowHud(YES, @"添加成功");
-            [self.navigationController popViewControllerAnimated:YES];
-        } else {
-            XJSShowHud(NO, msg);
-        }
-    }];
+    if (self.isModifyInformations) {    //修改患者信息
+        [params setObject:self.patientModel.id forKey:@"id"];
+        [params setObject:self.patientModel.ts forKey:@"ts"];
+        [XJSPatientModel modifyPatientInformations:params handler:^(id object, NSString *msg) {
+            [MBProgressHUD hideHUDForView:XJSKeyWindow animated:YES];
+            if (object) {
+                XJSShowHud(YES, @"修改成功");
+                [self.navigationController popViewControllerAnimated:YES];
+                if (self.modifyBlock) {
+                    self.modifyBlock(self.patientModel);
+                }
+            } else {
+                XJSShowHud(NO, msg);
+            }
+        }];
+    } else {                           //添加患者
+        [XJSPatientModel addPatient:params handler:^(id object, NSString *msg) {
+            [MBProgressHUD hideHUDForView:XJSKeyWindow animated:YES];
+            if (object) {
+                XJSShowHud(YES, @"添加成功");
+                [self.navigationController popViewControllerAnimated:YES];
+                if (self.addBlock) {
+                    self.addBlock();
+                }
+            } else {
+                XJSShowHud(NO, msg);
+            }
+        }];
+    }
 }
 - (void)infoTextFieldEditingChanged:(UITextField *)textField {
     switch (textField.tag) {

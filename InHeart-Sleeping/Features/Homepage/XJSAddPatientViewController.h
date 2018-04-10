@@ -12,5 +12,7 @@
 @interface XJSAddPatientViewController : UIViewController
 
 @property (strong, nonatomic) XJSPatientModel *patientModel;
-
+@property (nonatomic) BOOL isModifyInformations;
+@property (copy, nonatomic) void (^modifyBlock)(XJSPatientModel *model);
+@property (copy, nonatomic) void (^addBlock)(void);
 @end

@@ -7,6 +7,9 @@
 //
 
 #import "XJSSearchPatientsViewController.h"
+#import "XJSPatientDetailViewController.h"
+#import "XJSTrainingCenterViewController.h"
+#import "XJSTrainingRecordsViewController.h"
 
 #import "XJSSearchView.h"
 #import "XJSPatientInfomationCollectionViewCell.h"
@@ -20,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *resultCollectionView;
 @property (strong, nonatomic) XJSSearchView *searchView;
 
-@property (copy, nonatomic) NSArray *resultArray;
+@property (strong, nonatomic) NSMutableArray *resultArray;
 
 @end
 
@@ -30,10 +33,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.titleView = self.searchView;
-}
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] init];
+    
     [self.searchView.textField becomeFirstResponder];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(patientDidDelete:) name:XJSPatientDidDelete object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(patientInformationsDidModify:) name:XJSPatientInformationsDidModify object:nil];
+}
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:XJSPatientDidDelete object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:XJSPatientInformationsDidModify object:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -46,9 +55,12 @@
     [XJSPatientModel patientsList:keywords page:@1 handler:^(id object, NSString *msg) {
         [MBProgressHUD hideHUDForView:XJSKeyWindow animated:YES];
         if (object) {
-            _resultArray = [(NSArray *)object copy];
+            self.resultArray = [(NSArray *)object mutableCopy];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.resultCollectionView reloadData];
+                if (self.resultArray.count == 0) {
+                    XJSShowHud(NO, @"无搜索结果");
+                }
             });
         } else {
             XJSShowHud(NO, msg);
@@ -56,9 +68,32 @@
     }];
 }
 
+#pragma mark - Notification
+- (void)patientDidDelete:(NSNotification *)notification {
+    XJSPatientModel *tempModel = (XJSPatientModel *)notification.object;
+    NSArray *tempArray = [self.resultArray copy];
+    [tempArray enumerateObjectsUsingBlock:^(XJSPatientModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.id isEqualToString:tempModel.id]) {
+            [self.resultArray removeObjectAtIndex:idx];
+            [self.resultCollectionView deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:idx inSection:0]]];
+        }
+    }];
+    
+}
+- (void)patientInformationsDidModify:(NSNotification *)notification {
+    XJSPatientModel *tempModel = (XJSPatientModel *)notification.object;
+    NSArray *tempArray = [self.resultArray copy];
+    [tempArray enumerateObjectsUsingBlock:^(XJSPatientModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.id isEqualToString:tempModel.id]) {
+            [self.resultArray replaceObjectAtIndex:idx withObject:tempModel];
+            [self.resultCollectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:idx inSection:0]]];
+        }
+    }];
+}
+
 #pragma mark - Search view delegate
 - (void)searchViewDidClickCancel {
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 - (void)searchViewDidClickSearch:(NSString *)keyword {
     if (keyword) {
@@ -68,12 +103,14 @@
 
 #pragma mark - Patient infomation cell delegate
 - (void)didClickTraining:(XJSPatientModel *)model {
-//    XJSTrainingCenterViewController *trainingCenterController = [[UIStoryboard storyboardWithName:@"Training" bundle:nil] instantiateViewControllerWithIdentifier:@"XJSTrainingCenter"];
-//    trainingCenterController.patientModel = model;
-//    [self.navigationController pushViewController:trainingCenterController animated:YES];
+    XJSTrainingCenterViewController *trainingCenterController = [[UIStoryboard storyboardWithName:@"Training" bundle:nil] instantiateViewControllerWithIdentifier:@"XJSTrainingCenter"];
+    trainingCenterController.patientModel = model;
+    [self.navigationController pushViewController:trainingCenterController animated:YES];
 }
 - (void)didClickRecord:(XJSPatientModel *)model {
-    
+    XJSTrainingRecordsViewController *recordsController = [[UIStoryboard storyboardWithName:@"Training" bundle:nil] instantiateViewControllerWithIdentifier:@"XJSTrainingRecords"];
+    recordsController.patientModel = model;
+    [self.navigationController pushViewController:recordsController animated:YES];
 }
 
 #pragma mark - Collection view data source
@@ -83,7 +120,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     XJSPatientInfomationCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"XJSPatientInfomationCollectionCell" forIndexPath:indexPath];
     cell.delegate = self;
-    XJSPatientModel *patientModel = _resultArray[indexPath.row];
+    XJSPatientModel *patientModel = self.resultArray[indexPath.row];
     cell.patientModel = patientModel;
     cell.nameLabel.text = patientModel.realname;
     cell.avatarImageView.image = patientModel.gender.integerValue == 1 ? [UIImage imageNamed:@"head_boy"] : [UIImage imageNamed:@"head_girl"];
@@ -107,6 +144,12 @@
     return 10.f;
 }
 #pragma mark - Collection view delegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    XJSPatientModel *model = self.resultArray[indexPath.row];
+    XJSPatientDetailViewController *detailController = [self.storyboard instantiateViewControllerWithIdentifier:@"XJSPatientDetail"];
+    detailController.patientModel = model;
+    [self.navigationController pushViewController:detailController animated:YES];
+}
 
 /*
 #pragma mark - Navigation
@@ -124,6 +167,12 @@
         _searchView.delegate = self;
     }
     return _searchView;
+}
+- (NSMutableArray *)resultArray {
+    if (!_resultArray) {
+        _resultArray = [[NSMutableArray alloc] init];
+    }
+    return _resultArray;
 }
 
 @end

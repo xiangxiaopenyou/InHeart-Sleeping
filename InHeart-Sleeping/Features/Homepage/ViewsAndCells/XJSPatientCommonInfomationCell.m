@@ -66,6 +66,10 @@
             [datePicker setDate:[NSDate date] animated:YES];
             // 设置显示最大时间（此处为当前时间）
             [datePicker setMaximumDate:[NSDate date]];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+            NSDate *minDate = [dateFormatter dateFromString:@"2018-01-01"];
+            [datePicker setMinimumDate:minDate];
             //监听DataPicker的滚动
             [datePicker addTarget:self action:@selector(dateChange:) forControlEvents:UIControlEventValueChanged];
             //设置时间输入框的键盘框样式为时间选择器
@@ -188,7 +192,7 @@
             }
                 break;
             case 4: {
-                self.textField.text = model.enterTime ? model.enterTime : nil;
+                self.textField.text = model.enterTime ? [model.enterTime substringToIndex:10] : nil;
             }
                 break;
             case 5: {

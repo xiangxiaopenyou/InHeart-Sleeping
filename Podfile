@@ -8,5 +8,6 @@ pod 'MBProgressHUD'
 pod 'SDWebImage'
 pod 'IQKeyboardManager'
 pod 'MJRefresh'
+pod 'PGDatePicker'
 end 
 

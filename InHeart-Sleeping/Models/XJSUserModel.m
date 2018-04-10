@@ -29,7 +29,7 @@
     }];
 }
 + (void)modifyInformation:(NSDictionary *)params handler:(RequestResultHandler)handler {
-    [[XJSBaseRequest new] postRequest:nil requestURLString:@"modifyInformations" result:^(id object, NSString *msg) {
+    [[XJSBaseRequest new] postRequest:params requestURLString:@"modifyInformations" result:^(id object, NSString *msg) {
         if (object) {
             !handler ?: handler(object, nil);
         } else {

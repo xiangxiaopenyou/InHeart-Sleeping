@@ -9,6 +9,8 @@
 #import "XJSCommonsDefines.h"
 
 NSString * const XJSLoginStatusDidChange = @"XJSLoginStatusDidChange";
+NSString * const XJSPatientInformationsDidModify = @"XJSPatientInformationsDidModify";
+NSString * const XJSPatientDidDelete = @"XJSPatientDidDelete";
 
 NSString * const USERTOKEN = @"UserToken";
 NSString * const USERID = @"UserID";

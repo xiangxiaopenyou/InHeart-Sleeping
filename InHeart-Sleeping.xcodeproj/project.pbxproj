@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2A1F3D79F1107286A18A0BAF /* libPods-InHeart-Sleeping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C957C71A344FE28435099BD8 /* libPods-InHeart-Sleeping.a */; };
-		3D8A7F15206E140000271B93 /* XJSRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A7F14206E140000271B93 /* XJSRecordsViewController.m */; };
+		3D48F5052079B6DE00A961CF /* XJSTrainingRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D48F5042079B6DE00A961CF /* XJSTrainingRecordsViewController.m */; };
+		3D48F5082079BAB900A961CF /* XJSTrainingRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D48F5072079BAB900A961CF /* XJSTrainingRecordCell.m */; };
+		3D48F50B207A0D2100A961CF /* XJSRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D48F50A207A0D2100A961CF /* XJSRecordModel.m */; };
 		3D8A7F18206E2C5500271B93 /* XJSPatientDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A7F17206E2C5500271B93 /* XJSPatientDetailViewController.m */; };
 		3D9446A2205FB3F80056A492 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9446A1205FB3F80056A492 /* AppDelegate.m */; };
 		3D9446AA205FB3F80056A492 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9446A9205FB3F80056A492 /* Assets.xcassets */; };
@@ -45,6 +47,9 @@
 		3D944749206A22E00056A492 /* XJSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D944748206A22E00056A492 /* XJSUserModel.m */; };
 		3D944754206B3CFC0056A492 /* XJSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D944753206B3CFC0056A492 /* XJSBaseViewController.m */; };
 		3D944758206B3EEF0056A492 /* XJSUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D944757206B3EEF0056A492 /* XJSUserManager.m */; };
+		3DB1E0F72071FE77003270E6 /* XLAlertControllerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB1E0F52071FE76003270E6 /* XLAlertControllerObject.m */; };
+		3DB1E0FA2072216E003270E6 /* XJSChooseDevicesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB1E0F92072216E003270E6 /* XJSChooseDevicesView.m */; };
+		3DB1E0FD20723514003270E6 /* XJSDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB1E0FC20723514003270E6 /* XJSDeviceModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +70,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3D8A7F13206E140000271B93 /* XJSRecordsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSRecordsViewController.h; sourceTree = "<group>"; };
-		3D8A7F14206E140000271B93 /* XJSRecordsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSRecordsViewController.m; sourceTree = "<group>"; };
+		3D48F5032079B6DE00A961CF /* XJSTrainingRecordsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSTrainingRecordsViewController.h; sourceTree = "<group>"; };
+		3D48F5042079B6DE00A961CF /* XJSTrainingRecordsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSTrainingRecordsViewController.m; sourceTree = "<group>"; };
+		3D48F5062079BAB900A961CF /* XJSTrainingRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSTrainingRecordCell.h; sourceTree = "<group>"; };
+		3D48F5072079BAB900A961CF /* XJSTrainingRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSTrainingRecordCell.m; sourceTree = "<group>"; };
+		3D48F509207A0D2100A961CF /* XJSRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSRecordModel.h; sourceTree = "<group>"; };
+		3D48F50A207A0D2100A961CF /* XJSRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSRecordModel.m; sourceTree = "<group>"; };
 		3D8A7F16206E2C5500271B93 /* XJSPatientDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSPatientDetailViewController.h; sourceTree = "<group>"; };
 		3D8A7F17206E2C5500271B93 /* XJSPatientDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSPatientDetailViewController.m; sourceTree = "<group>"; };
 		3D94469D205FB3F80056A492 /* InHeart-Sleeping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InHeart-Sleeping.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +147,12 @@
 		3D944753206B3CFC0056A492 /* XJSBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJSBaseViewController.m; sourceTree = "<group>"; };
 		3D944756206B3EEF0056A492 /* XJSUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSUserManager.h; sourceTree = "<group>"; };
 		3D944757206B3EEF0056A492 /* XJSUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSUserManager.m; sourceTree = "<group>"; };
+		3DB1E0F52071FE76003270E6 /* XLAlertControllerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLAlertControllerObject.m; sourceTree = "<group>"; };
+		3DB1E0F62071FE77003270E6 /* XLAlertControllerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLAlertControllerObject.h; sourceTree = "<group>"; };
+		3DB1E0F82072216E003270E6 /* XJSChooseDevicesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSChooseDevicesView.h; sourceTree = "<group>"; };
+		3DB1E0F92072216E003270E6 /* XJSChooseDevicesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSChooseDevicesView.m; sourceTree = "<group>"; };
+		3DB1E0FB20723514003270E6 /* XJSDeviceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSDeviceModel.h; sourceTree = "<group>"; };
+		3DB1E0FC20723514003270E6 /* XJSDeviceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSDeviceModel.m; sourceTree = "<group>"; };
 		8F481099EC924BA8A8C37C72 /* Pods-InHeart-Sleeping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InHeart-Sleeping.release.xcconfig"; path = "Pods/Target Support Files/Pods-InHeart-Sleeping/Pods-InHeart-Sleeping.release.xcconfig"; sourceTree = "<group>"; };
 		C957C71A344FE28435099BD8 /* libPods-InHeart-Sleeping.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InHeart-Sleeping.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D429C4CF6C11B9090CC7EA47 /* Pods-InHeart-Sleeping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InHeart-Sleeping.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InHeart-Sleeping/Pods-InHeart-Sleeping.debug.xcconfig"; sourceTree = "<group>"; };
@@ -261,6 +276,10 @@
 				3D94473C2068E0B80056A492 /* XJSSceneModel.m */,
 				3D944744206A161F0056A492 /* XJSPatientModel.h */,
 				3D944745206A161F0056A492 /* XJSPatientModel.m */,
+				3DB1E0FB20723514003270E6 /* XJSDeviceModel.h */,
+				3DB1E0FC20723514003270E6 /* XJSDeviceModel.m */,
+				3D48F509207A0D2100A961CF /* XJSRecordModel.h */,
+				3D48F50A207A0D2100A961CF /* XJSRecordModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -291,6 +310,7 @@
 		3D9446EC205FB9A10056A492 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				3DB1E0F42071FE68003270E6 /* XLKit */,
 				3D94470A20625ED50056A492 /* ZWPullMenuView */,
 			);
 			path = Vendors;
@@ -317,8 +337,6 @@
 				3D94471D2064A3A90056A492 /* XJSModifyInformationViewController.m */,
 				3D9447412068F0E90056A492 /* XJSSearchPatientsViewController.h */,
 				3D9447422068F0E90056A492 /* XJSSearchPatientsViewController.m */,
-				3D8A7F13206E140000271B93 /* XJSRecordsViewController.h */,
-				3D8A7F14206E140000271B93 /* XJSRecordsViewController.m */,
 				3D8A7F16206E2C5500271B93 /* XJSPatientDetailViewController.h */,
 				3D8A7F17206E2C5500271B93 /* XJSPatientDetailViewController.m */,
 			);
@@ -358,6 +376,8 @@
 				3D9447302068C4EF0056A492 /* ViewsAndCells */,
 				3D94472D2068C2BC0056A492 /* XJSTrainingCenterViewController.h */,
 				3D94472E2068C2BC0056A492 /* XJSTrainingCenterViewController.m */,
+				3D48F5032079B6DE00A961CF /* XJSTrainingRecordsViewController.h */,
+				3D48F5042079B6DE00A961CF /* XJSTrainingRecordsViewController.m */,
 			);
 			path = Training;
 			sourceTree = "<group>";
@@ -379,6 +399,10 @@
 				3D9447322068C5230056A492 /* XJSSceneCollectionViewCell.m */,
 				3D9447342068C7A10056A492 /* XJSTherapyTitleCell.h */,
 				3D9447352068C7A10056A492 /* XJSTherapyTitleCell.m */,
+				3DB1E0F82072216E003270E6 /* XJSChooseDevicesView.h */,
+				3DB1E0F92072216E003270E6 /* XJSChooseDevicesView.m */,
+				3D48F5062079BAB900A961CF /* XJSTrainingRecordCell.h */,
+				3D48F5072079BAB900A961CF /* XJSTrainingRecordCell.m */,
 			);
 			path = ViewsAndCells;
 			sourceTree = "<group>";
@@ -408,6 +432,15 @@
 				3D944757206B3EEF0056A492 /* XJSUserManager.m */,
 			);
 			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		3DB1E0F42071FE68003270E6 /* XLKit */ = {
+			isa = PBXGroup;
+			children = (
+				3DB1E0F62071FE77003270E6 /* XLAlertControllerObject.h */,
+				3DB1E0F52071FE76003270E6 /* XLAlertControllerObject.m */,
+			);
+			path = XLKit;
 			sourceTree = "<group>";
 		};
 		9F3349552CF22DAFE0C70390 /* Frameworks */ = {
@@ -615,13 +648,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D94470120623C040056A492 /* XJSPatientInfomationCollectionViewCell.m in Sources */,
+				3DB1E0FD20723514003270E6 /* XJSDeviceModel.m in Sources */,
 				3D94471520625ED50056A492 /* ZWPullMenuView.m in Sources */,
+				3D48F50B207A0D2100A961CF /* XJSRecordModel.m in Sources */,
 				3D94473D2068E0B80056A492 /* XJSSceneModel.m in Sources */,
+				3DB1E0FA2072216E003270E6 /* XJSChooseDevicesView.m in Sources */,
 				3D9446F32060B2710056A492 /* XJSLoginViewController.m in Sources */,
 				3D94473A2068CF850056A492 /* XJSTherapyModel.m in Sources */,
 				3D9447252064EE910056A492 /* XJSBaseRequest.m in Sources */,
 				3D944709206245230056A492 /* XJSUtilities.m in Sources */,
 				3D944746206A161F0056A492 /* XJSPatientModel.m in Sources */,
+				3D48F5052079B6DE00A961CF /* XJSTrainingRecordsViewController.m in Sources */,
 				3D94471B20638F490056A492 /* XJSPatientCommonInfomationCell.m in Sources */,
 				3D9447402068EE280056A492 /* XJSSearchView.m in Sources */,
 				3D944749206A22E00056A492 /* XJSUserModel.m in Sources */,
@@ -634,15 +671,16 @@
 				3D9447362068C7A10056A492 /* XJSTherapyTitleCell.m in Sources */,
 				3D94472F2068C2BC0056A492 /* XJSTrainingCenterViewController.m in Sources */,
 				3D94471220625ED50056A492 /* ZWPullMenuCell.m in Sources */,
-				3D8A7F15206E140000271B93 /* XJSRecordsViewController.m in Sources */,
 				3D944704206240DA0056A492 /* XJSCommonsDefines.m in Sources */,
 				3D94471420625ED50056A492 /* ZWPullMenuModel.m in Sources */,
 				3D944758206B3EEF0056A492 /* XJSUserManager.m in Sources */,
 				3D9447332068C5230056A492 /* XJSSceneCollectionViewCell.m in Sources */,
 				3D944728206883520056A492 /* XJSBaseModel.m in Sources */,
 				3D9446A2205FB3F80056A492 /* AppDelegate.m in Sources */,
+				3D48F5082079BAB900A961CF /* XJSTrainingRecordCell.m in Sources */,
 				3D9447222064EA9D0056A492 /* XJSHttpManager.m in Sources */,
 				3D94471E2064A3A90056A492 /* XJSModifyInformationViewController.m in Sources */,
+				3DB1E0F72071FE77003270E6 /* XLAlertControllerObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

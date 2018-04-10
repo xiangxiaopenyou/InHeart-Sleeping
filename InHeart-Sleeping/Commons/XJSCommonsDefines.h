@@ -37,6 +37,8 @@ typedef NS_ENUM(NSInteger, XJSEducationDegree) {
 
 //notification
 extern NSString * const XJSLoginStatusDidChange;
+extern NSString * const XJSPatientInformationsDidModify;
+extern NSString * const XJSPatientDidDelete;
 
 extern NSString * const USERTOKEN;
 extern NSString * const USERID;

@@ -22,7 +22,10 @@
 @property (copy, nonatomic) NSString *phoneNumber;
 @property (copy, nonatomic) NSString *enterTime;
 @property (copy, nonatomic) NSString *address;
+@property (copy, nonatomic) NSString *ts;
 + (void)addPatient:(NSDictionary *)params handler:(RequestResultHandler)handler;
 + (void)patientsList:(NSString *)keyword page:(NSNumber *)paging handler:(RequestResultHandler)handler;
 + (void)patientDetail:(NSString *)patientId handler:(RequestResultHandler)handler;
++ (void)modifyPatientInformations:(NSDictionary *)params handler:(RequestResultHandler)handler;
++ (void)deletePatient:(NSString *)patientId handle:(RequestResultHandler)handler;
 @end

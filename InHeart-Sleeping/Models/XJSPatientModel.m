@@ -43,5 +43,24 @@
         }
     }];
 }
++ (void)modifyPatientInformations:(NSDictionary *)params handler:(RequestResultHandler)handler {
+    [[XJSBaseRequest new] postRequest:params requestURLString:@"updatePatient" result:^(id object, NSString *msg) {
+        if (object) {
+            !handler ?: handler(object, nil);
+        } else {
+            !handler ?: handler(nil, msg);
+        }
+    }];
+}
++ (void)deletePatient:(NSString *)patientId handle:(RequestResultHandler)handler {
+    NSDictionary *params = @{@"id" : patientId};
+    [[XJSBaseRequest new] postRequest:params requestURLString:@"deletePatient" result:^(id object, NSString *msg) {
+        if (object) {
+            !handler ?: handler(object, nil);
+        } else {
+            !handler ?: handler(nil, msg);
+        }
+    }];
+}
 
 @end
