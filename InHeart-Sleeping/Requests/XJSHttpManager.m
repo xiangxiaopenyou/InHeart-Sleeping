@@ -7,7 +7,8 @@
 //
 
 #import "XJSHttpManager.h"
-static NSString * const BASEURL = @"http://test.med-vision.cn/api/v1/appControllerSm/";
+//static NSString * const BASEURL = @"http://test.med-vision.cn/api/v1/appControllerSm/";
+static NSString * const BASEURL = @"http://support.med-vision.cn/api/v1/appControllerSm/";
 
 @implementation XJSHttpManager
 + (instancetype)sharedInstance {
@@ -26,6 +27,10 @@ static NSString * const BASEURL = @"http://test.med-vision.cn/api/v1/appControll
         instance.requestSerializer = requestSerializer;
         instance.responseSerializer = responseSerializer;
         [NSURLSessionConfiguration defaultSessionConfiguration].HTTPMaximumConnectionsPerHost = 1;
+//        AFSecurityPolicy *securityPolicy = [AFSecurityPolicy defaultPolicy];
+//        securityPolicy.allowInvalidCertificates = YES;
+//        securityPolicy.validatesDomainName = NO;
+//        instance.securityPolicy = securityPolicy;
     });
     return instance;
 }

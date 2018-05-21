@@ -8,6 +8,8 @@
 
 #import "XJSBaseViewController.h"
 #import "XJSModifyInformationViewController.h"
+#import "XJSAboutSystemViewController.h"
+
 #import "ZWPullMenuView.h"
 #import "XLAlertControllerObject.h"
 
@@ -63,13 +65,10 @@
             }
                 break;
             case 1: {
-                
+                XJSAboutSystemViewController *aboutController = [[UIStoryboard storyboardWithName:@"Addition" bundle:nil] instantiateViewControllerWithIdentifier:@"XJSAboutSystem"];
+                [self.navigationController pushViewController:aboutController animated:YES];
             }
                 break;
-//            case 2: {
-//
-//            }
-//                break;
             default:
                 break;
         }

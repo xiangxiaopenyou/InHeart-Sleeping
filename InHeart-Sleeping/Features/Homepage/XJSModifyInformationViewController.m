@@ -45,14 +45,6 @@
             self.contentTextField2.secureTextEntry = YES;
         }
             break;
-//        case XJSUserInformationTypePhone: {
-//            titleString = @"手机号修改";
-//            self.contentTextField1.hidden = YES;
-//            self.titleLabel1.text = @"手机号:";
-//            self.titleLabel2.text = @"更改为:";
-//            self.contentTextField2.keyboardType = UIKeyboardTypeNumberPad;
-//        }
-//            break;
         default:
             break;
     }
@@ -84,7 +76,7 @@
             if (self.informationType == XJSUserInformationTypeName) {
                 [[NSUserDefaults standardUserDefaults] setObject:self.contentTextField2.text forKey:USERREALNAME];
             }
-            NSString *tipString = [NSString stringWithFormat:@"%@成功", _titleString];
+            NSString *tipString = [NSString stringWithFormat:@"%@成功", self.titleString];
             XJSShowHud(YES, tipString);
             [self.navigationController popViewControllerAnimated:YES];
         } else {

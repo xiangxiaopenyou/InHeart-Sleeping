@@ -11,4 +11,5 @@
 @interface XJSUtilities : NSObject
 + (BOOL)isNullObject:(id)anObject;
 + (void)showHud:(BOOL)isSuccess message:(NSString *)message;
++ (BOOL)isMobileNumber:(NSString *)phoneNumber;
 @end

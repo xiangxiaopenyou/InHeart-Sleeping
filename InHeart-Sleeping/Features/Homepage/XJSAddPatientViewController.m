@@ -10,7 +10,7 @@
 #import "XJSPatientCommonInfomationCell.h"
 
 
-@interface XJSAddPatientViewController () <UITableViewDelegate, UITableViewDataSource, XJSPatientCommonInfomationCellDelegate>
+@interface XJSAddPatientViewController () <UITableViewDelegate, UITableViewDataSource, XJSPatientCommonInfomationCellDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *leftTableView;
 @property (weak, nonatomic) IBOutlet UITableView *rightTableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rightItem;
@@ -89,6 +89,10 @@
         [params setObject:self.patientModel.identificationNumber forKey:@"identificationNumber"];
     }
     if (!XJSIsNullObject(self.patientModel.phoneNumber)) {
+        if (!XJSIsMobileNumber(self.patientModel.phoneNumber)) {
+            XJSShowHud(NO, @"请输入正确的手机号");
+            return;
+        }
         [params setObject:self.patientModel.phoneNumber forKey:@"phoneNumber"];
     }
     if (!XJSIsNullObject(self.patientModel.address)) {
@@ -170,6 +174,26 @@
     dateTextField.text = dateString;
 }
 
+#pragma mark - Text field delegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([string isEqualToString:@" "]) {
+        return NO;
+    }
+    if (textField.tag == 13) {
+        NSString *numbers = @"0123456789";
+        NSCharacterSet *set = [[NSCharacterSet characterSetWithCharactersInString:numbers] invertedSet];
+        NSString *filtered = [[string componentsSeparatedByCharactersInSet:set] componentsJoinedByString:@""];
+        if (![string isEqualToString:filtered]) {
+            return NO;
+        } else {
+            if (textField.text.length == 0 && [string isEqualToString:@"0"]) {
+                return NO;
+            }
+        }
+    }
+    return YES;
+}
+
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 6;
@@ -189,6 +213,7 @@
         cell.textField.tag = 20 + indexPath.row;
     }
     [cell.textField addTarget:self action:@selector(infoTextFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+    cell.textField.delegate = self;
     cell.delegate = self;
     return cell;
 }

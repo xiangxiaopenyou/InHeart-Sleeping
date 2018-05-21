@@ -11,6 +11,8 @@
 		3D48F5052079B6DE00A961CF /* XJSTrainingRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D48F5042079B6DE00A961CF /* XJSTrainingRecordsViewController.m */; };
 		3D48F5082079BAB900A961CF /* XJSTrainingRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D48F5072079BAB900A961CF /* XJSTrainingRecordCell.m */; };
 		3D48F50B207A0D2100A961CF /* XJSRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D48F50A207A0D2100A961CF /* XJSRecordModel.m */; };
+		3D48F50D207DA00E00A961CF /* Addition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D48F50C207DA00E00A961CF /* Addition.storyboard */; };
+		3D48F511207DA26400A961CF /* XJSAboutSystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D48F510207DA26400A961CF /* XJSAboutSystemViewController.m */; };
 		3D8A7F18206E2C5500271B93 /* XJSPatientDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A7F17206E2C5500271B93 /* XJSPatientDetailViewController.m */; };
 		3D9446A2205FB3F80056A492 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9446A1205FB3F80056A492 /* AppDelegate.m */; };
 		3D9446AA205FB3F80056A492 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9446A9205FB3F80056A492 /* Assets.xcassets */; };
@@ -76,6 +78,9 @@
 		3D48F5072079BAB900A961CF /* XJSTrainingRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSTrainingRecordCell.m; sourceTree = "<group>"; };
 		3D48F509207A0D2100A961CF /* XJSRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSRecordModel.h; sourceTree = "<group>"; };
 		3D48F50A207A0D2100A961CF /* XJSRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSRecordModel.m; sourceTree = "<group>"; };
+		3D48F50C207DA00E00A961CF /* Addition.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Addition.storyboard; sourceTree = "<group>"; };
+		3D48F50F207DA26400A961CF /* XJSAboutSystemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSAboutSystemViewController.h; sourceTree = "<group>"; };
+		3D48F510207DA26400A961CF /* XJSAboutSystemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSAboutSystemViewController.m; sourceTree = "<group>"; };
 		3D8A7F16206E2C5500271B93 /* XJSPatientDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSPatientDetailViewController.h; sourceTree = "<group>"; };
 		3D8A7F17206E2C5500271B93 /* XJSPatientDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSPatientDetailViewController.m; sourceTree = "<group>"; };
 		3D94469D205FB3F80056A492 /* InHeart-Sleeping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InHeart-Sleeping.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +189,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D48F50E207DA23B00A961CF /* Addition */ = {
+			isa = PBXGroup;
+			children = (
+				3D48F50F207DA26400A961CF /* XJSAboutSystemViewController.h */,
+				3D48F510207DA26400A961CF /* XJSAboutSystemViewController.m */,
+			);
+			path = Addition;
+			sourceTree = "<group>";
+		};
 		3D944694205FB3F80056A492 = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +273,7 @@
 				3D94471F2064E91E0056A492 /* Training */,
 				3D9446FA206235C50056A492 /* Homepage */,
 				3D9446F02060B2570056A492 /* Login */,
+				3D48F50E207DA23B00A961CF /* Addition */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -388,6 +403,7 @@
 				3D9446ED205FC07D0056A492 /* Login.storyboard */,
 				3D9446F42060F4680056A492 /* Homepage.storyboard */,
 				3D94472920688C650056A492 /* Training.storyboard */,
+				3D48F50C207DA00E00A961CF /* Addition.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -525,7 +541,7 @@
 		3D944695205FB3F80056A492 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "项小盆友";
 				TargetAttributes = {
 					3D94469C205FB3F80056A492 = {
@@ -571,6 +587,7 @@
 			files = (
 				3D94472B20688C650056A492 /* Training.storyboard in Resources */,
 				3D9446F62060F4680056A492 /* Homepage.storyboard in Resources */,
+				3D48F50D207DA00E00A961CF /* Addition.storyboard in Resources */,
 				3D94471320625ED50056A492 /* ZWPullMenuCell.xib in Resources */,
 				3D9446E6205FB93B0056A492 /* LaunchScreen.storyboard in Resources */,
 				3D9446AA205FB3F80056A492 /* Assets.xcassets in Resources */,
@@ -655,6 +672,7 @@
 				3DB1E0FA2072216E003270E6 /* XJSChooseDevicesView.m in Sources */,
 				3D9446F32060B2710056A492 /* XJSLoginViewController.m in Sources */,
 				3D94473A2068CF850056A492 /* XJSTherapyModel.m in Sources */,
+				3D48F511207DA26400A961CF /* XJSAboutSystemViewController.m in Sources */,
 				3D9447252064EE910056A492 /* XJSBaseRequest.m in Sources */,
 				3D944709206245230056A492 /* XJSUtilities.m in Sources */,
 				3D944746206A161F0056A492 /* XJSPatientModel.m in Sources */,
@@ -766,6 +784,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -773,6 +792,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -822,6 +842,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -829,6 +850,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -862,15 +884,19 @@
 			baseConfigurationReference = D429C4CF6C11B9090CC7EA47 /* Pods-InHeart-Sleeping.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2TD7NZ9YYK;
+				DEVELOPMENT_TEAM = NU4X48R8LQ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/InHeart-Sleeping/InHeart-Sleeping-Prefix.pch";
 				INFOPLIST_FILE = "InHeart-Sleeping/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.medvision.vrmedpro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medvision.vrmed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -880,15 +906,18 @@
 			baseConfigurationReference = 8F481099EC924BA8A8C37C72 /* Pods-InHeart-Sleeping.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2TD7NZ9YYK;
+				DEVELOPMENT_TEAM = NU4X48R8LQ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/InHeart-Sleeping/InHeart-Sleeping-Prefix.pch";
 				INFOPLIST_FILE = "InHeart-Sleeping/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.medvision.vrmedpro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.medvision.vrmed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;

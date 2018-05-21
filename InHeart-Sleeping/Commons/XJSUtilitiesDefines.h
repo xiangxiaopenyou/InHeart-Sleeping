@@ -30,6 +30,9 @@
 #define XJSSystemFont(x) [UIFont systemFontOfSize:x]
 #define XJSBoldSystemFont(x) [UIFont boldSystemFontOfSize:x]
 
+//判空
 #define XJSIsNullObject(anObject) [XJSUtilities isNullObject:anObject]
 
 #define XJSShowHud(isSuccess, aMessage) [XJSUtilities showHud:isSuccess message:aMessage]
+
+#define XJSIsMobileNumber(aNumber) [XJSUtilities isMobileNumber:aNumber]

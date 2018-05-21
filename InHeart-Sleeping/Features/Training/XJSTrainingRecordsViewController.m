@@ -70,7 +70,7 @@
 }
 - (void)addRefreshView {
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        _paging = 1;
+        self.paging = 1;
         [self fetchRecordsList];
     }];
     header.stateLabel.hidden = YES;
@@ -85,12 +85,8 @@
 - (void)refreshAllButtonStatus {
     if (_selectedYear > 0 && _selectedMonth > 0) {
         self.allButton.hidden = NO;
-        //self.allButton.enabled = YES;
-        //[self.allButton setTitleColor:XJSHexRGBColorWithAlpha(0x9AA5E9, 1) forState:UIControlStateNormal];
     } else {
         self.allButton.hidden = YES;
-//        self.allButton.enabled = NO;
-//        [self.allButton setTitleColor:XJSHexRGBColorWithAlpha(0x999999, 1) forState:UIControlStateNormal];
     }
 }
 
@@ -131,7 +127,7 @@
         [self.tableView.mj_footer endRefreshing];
         if (object) {
             NSArray *resultArray = [(NSArray *)object copy];
-            if (_paging == 1) {
+            if (self.paging == 1) {
                 self.recordsArray = [resultArray mutableCopy];
             } else {
                 NSMutableArray *tempArray = [self.recordsArray mutableCopy];
@@ -143,10 +139,13 @@
                 [self.tableView.mj_footer endRefreshingWithNoMoreData];
             } else {
                 self.tableView.mj_footer.hidden = NO;
-                _paging += 1;
+                self.paging += 1;
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
+                if (self.recordsArray.count == 0) {
+                    XJSShowHud(NO, @"暂无记录");
+                }
             });
         } else {
             XJSShowHud(NO, msg);
@@ -160,7 +159,9 @@
     _selectedMonth = dateComponents.month;
     self.dateLabel.text = [NSString stringWithFormat:@"%@年%@月", @(_selectedYear), @(_selectedMonth)];
     [self refreshAllButtonStatus];
-    [self.tableView.mj_header beginRefreshing];
+    //[self.tableView.mj_header beginRefreshing];
+    _paging = 1;
+    [self fetchRecordsList];
 }
 
 #pragma mark - Table view data source

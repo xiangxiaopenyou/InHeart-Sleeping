@@ -65,7 +65,7 @@
 #pragma mark - Private methods
 - (void)addRefreshView {
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        _paging = 1;
+        self.paging = 1;
         [self fetchPatientsList];
     }];
     header.stateLabel.hidden = YES;
@@ -86,19 +86,19 @@
         [self.collectionView.mj_footer endRefreshing];
         if (object) {
             NSArray *resultArray = [(NSArray *)object copy];
-            if (_paging == 1) {
+            if (self.paging == 1) {
                 self.patientsArray = [resultArray mutableCopy];
             } else {
                 NSMutableArray *tempArray = [self.patientsArray mutableCopy];
                 [tempArray addObjectsFromArray:resultArray];
                 self.patientsArray = [tempArray mutableCopy];
             }
-            if (resultArray.count < 10) {
+            if (resultArray.count < 20) {
                 self.collectionView.mj_footer.hidden = YES;
                 [self.collectionView.mj_footer endRefreshingWithNoMoreData];
             } else {
                 self.collectionView.mj_footer.hidden = NO;
-                _paging += 1;
+                self.paging += 1;
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.emptyLabel.text = self.patientsArray.count > 0 ? nil : @"暂无患者";

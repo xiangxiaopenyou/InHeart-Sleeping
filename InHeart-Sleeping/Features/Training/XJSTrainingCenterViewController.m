@@ -81,7 +81,7 @@
 #pragma mark - Private methods
 - (void)addRefreshView {
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        _scenePaging = 1;
+        self.scenePaging = 1;
         [self fetchSceneList];
     }];
     header.stateLabel.hidden = YES;
@@ -115,8 +115,8 @@
 - (void)fetchTherapyList {
     [XJSTherapyModel therapiesList:^(id object, NSString *msg) {
         if (object) {
-            _therapiesArray = [(NSArray *)object copy];
-            _scenePaging = 1;
+            self.therapiesArray = [(NSArray *)object copy];
+            self.scenePaging = 1;
             [self fetchSceneList];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self setupTherapyInformations];
@@ -135,19 +135,19 @@
         [self.scenesCollectionView.mj_footer endRefreshing];
         if (object) {
             NSArray *resultArray = [(NSArray *)object copy];
-            if (_scenePaging == 1) {
+            if (self.scenePaging == 1) {
                 self.scenesArray = [resultArray mutableCopy];
             } else {
                 NSMutableArray *tempArray = [self.scenesArray mutableCopy];
                 [tempArray addObjectsFromArray:resultArray];
                 self.scenesArray = [tempArray mutableCopy];
             }
-            if (resultArray.count < 10) {
+            if (resultArray.count < 20) {
                 self.scenesCollectionView.mj_footer.hidden = YES;
                 [self.scenesCollectionView.mj_footer endRefreshingWithNoMoreData];
             } else {
                 self.scenesCollectionView.mj_footer.hidden = NO;
-                _scenePaging += 1;
+                self.scenePaging += 1;
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.scenesCollectionView reloadData];
@@ -160,7 +160,7 @@
 - (void)fetchDevicesList {
     [XJSDeviceModel devicesList:^(id object, NSString *msg) {
         if (object) {
-            _devicesArray = [(NSArray *)object copy];
+            self.devicesArray = [(NSArray *)object copy];
         }
     }];
 }
