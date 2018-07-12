@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oSe-hq-3ZC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oSe-hq-3ZC">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,6 +13,10 @@
         <scene sceneID="xCL-gG-RoE">
             <objects>
                 <viewController storyboardIdentifier="XJSAboutSystem" id="oSe-hq-3ZC" customClass="XJSAboutSystemViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Qx-vm-byV"/>
+                        <viewControllerLayoutGuide type="bottom" id="6X6-Eo-WSb"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mhO-3C-dZg">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +71,6 @@
                             <constraint firstItem="ZUH-9Y-Ure" firstAttribute="centerY" secondItem="mhO-3C-dZg" secondAttribute="centerY" constant="-50" id="8Uq-Hl-kHn"/>
                             <constraint firstItem="ZUH-9Y-Ure" firstAttribute="centerX" secondItem="mhO-3C-dZg" secondAttribute="centerX" id="YKZ-Xh-yKJ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="sjz-Kg-K7g"/>
                     </view>
                     <navigationItem key="navigationItem" title="关于系统" id="D9U-FG-kdZ"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

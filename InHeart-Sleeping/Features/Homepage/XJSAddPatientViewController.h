@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "XJSPatientModel.h"
-
 @interface XJSAddPatientViewController : UIViewController
 
 @property (strong, nonatomic) XJSPatientModel *patientModel;

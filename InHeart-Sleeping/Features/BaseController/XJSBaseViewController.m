@@ -14,6 +14,7 @@
 #import "XLAlertControllerObject.h"
 
 @interface XJSBaseViewController ()
+@property (nonatomic, strong) UIImageView *arrowImageView;
 
 @end
 
@@ -30,7 +31,8 @@
     NSString *nameString = [[NSUserDefaults standardUserDefaults] stringForKey:USERREALNAME];
     CGSize nameSize = [nameString sizeWithAttributes:@{NSFontAttributeName : XJSSystemFont(16)}];
     [self.userButton setTitle:nameString forState:UIControlStateNormal];
-    [self.userButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, - nameSize.width * 1.7)];
+    self.userButton.frame = CGRectMake(0, 0, nameSize.width + 40.f, 44.f);
+    self.arrowImageView.frame = CGRectMake(nameSize.width + 25, 0, 10, 44);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,11 +90,9 @@
 - (UIButton *)userButton {
     if (!_userButton) {
         _userButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _userButton.frame = CGRectMake(0, 0, 60, 40);
-        [_userButton setImage:[UIImage imageNamed:@"navigation_arrow_down"] forState:UIControlStateNormal];
         [_userButton setTitleColor:XJSHexRGBColorWithAlpha(0x666666, 1) forState:UIControlStateNormal];
         _userButton.titleLabel.font = [UIFont systemFontOfSize:16];
-        [_userButton setTitleEdgeInsets:UIEdgeInsetsMake(0, - 40, 0, 0)];
+        [_userButton addSubview:self.arrowImageView];
         [_userButton addTarget:self action:@selector(userAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _userButton;
@@ -105,6 +105,13 @@
         [_moreButton addTarget:self action:@selector(moreAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _moreButton;
+}
+- (UIImageView *)arrowImageView {
+    if (!_arrowImageView) {
+        _arrowImageView = [[UIImageView alloc] init];
+        _arrowImageView.image = [UIImage imageNamed:@"navigation_arrow_down"];
+    }
+    return _arrowImageView;
 }
 
 @end

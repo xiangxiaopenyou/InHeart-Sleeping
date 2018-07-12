@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "XJSLoginViewController.h"
 #import "XJSPatientsManagementViewController.h"
+#import "XJSBaseRequest.h"
 
 #import <IQKeyboardManager.h>
 
