@@ -7,6 +7,7 @@
 //
 
 #import "XJSTherapyModel.h"
+#import <objc/message.h>
 
 @implementation XJSTherapyModel
 + (void)therapiesList:(RequestResultHandler)handler {

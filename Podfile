@@ -9,5 +9,6 @@ pod 'SDWebImage'
 pod 'IQKeyboardManager'
 pod 'MJRefresh'
 pod 'PGDatePicker'
+pod 'TTTAttributedLabel'
 end 
 

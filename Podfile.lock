@@ -24,6 +24,7 @@ PODS:
   - SDWebImage (4.3.2):
     - SDWebImage/Core (= 4.3.2)
   - SDWebImage/Core (4.3.2)
+  - TTTAttributedLabel (2.0.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -34,7 +35,21 @@ DEPENDENCIES:
   - MJRefresh
   - PGDatePicker
   - SDWebImage
+  - TTTAttributedLabel
   - YYModel
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - IQKeyboardManager
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - PGDatePicker
+    - PGPickerView
+    - SDWebImage
+    - TTTAttributedLabel
+    - YYModel
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
@@ -45,8 +60,9 @@ SPEC CHECKSUMS:
   PGDatePicker: 7a9a21a829d45205b3a342c76bd1642ea6824e5e
   PGPickerView: 8fbbf63d0404065a43a495a0115d339455e0f819
   SDWebImage: 29bd3c0bc1f01e5eb59720847c64ad4c4ca1af5d
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: a2b95e6275901a3af83448525e34d43267a158f0
+PODFILE CHECKSUM: c8b282a20c963e9b853f6682fa4f99ffec5153cc
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.5.2

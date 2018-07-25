@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A1F3D79F1107286A18A0BAF /* libPods-InHeart-Sleeping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C957C71A344FE28435099BD8 /* libPods-InHeart-Sleeping.a */; };
+		3D3568372108701300F0F1FB /* XJSAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3568362108701300F0F1FB /* XJSAgreementViewController.m */; };
 		3D48F5052079B6DE00A961CF /* XJSTrainingRecordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D48F5042079B6DE00A961CF /* XJSTrainingRecordsViewController.m */; };
 		3D48F5082079BAB900A961CF /* XJSTrainingRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D48F5072079BAB900A961CF /* XJSTrainingRecordCell.m */; };
 		3D48F50B207A0D2100A961CF /* XJSRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D48F50A207A0D2100A961CF /* XJSRecordModel.m */; };
@@ -72,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D3568352108701300F0F1FB /* XJSAgreementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSAgreementViewController.h; sourceTree = "<group>"; };
+		3D3568362108701300F0F1FB /* XJSAgreementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSAgreementViewController.m; sourceTree = "<group>"; };
 		3D48F5032079B6DE00A961CF /* XJSTrainingRecordsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSTrainingRecordsViewController.h; sourceTree = "<group>"; };
 		3D48F5042079B6DE00A961CF /* XJSTrainingRecordsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJSTrainingRecordsViewController.m; sourceTree = "<group>"; };
 		3D48F5062079BAB900A961CF /* XJSTrainingRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XJSTrainingRecordCell.h; sourceTree = "<group>"; };
@@ -336,6 +339,8 @@
 			children = (
 				3D9446F12060B2710056A492 /* XJSLoginViewController.h */,
 				3D9446F22060B2710056A492 /* XJSLoginViewController.m */,
+				3D3568352108701300F0F1FB /* XJSAgreementViewController.h */,
+				3D3568362108701300F0F1FB /* XJSAgreementViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -487,7 +492,6 @@
 				3D944699205FB3F80056A492 /* Sources */,
 				3D94469A205FB3F80056A492 /* Frameworks */,
 				3D94469B205FB3F80056A492 /* Resources */,
-				79AFB38AA0AF3AE06B46C846 /* [CP] Embed Pods Frameworks */,
 				13A3983D5D576082907D58F3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -618,28 +622,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-InHeart-Sleeping/Pods-InHeart-Sleeping-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/PGDatePicker/PGDatePicker/PGDatePicker.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PGDatePicker.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InHeart-Sleeping/Pods-InHeart-Sleeping-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		79AFB38AA0AF3AE06B46C846 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InHeart-Sleeping/Pods-InHeart-Sleeping-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8EB0367DF09E3FCB6ADC2549 /* [CP] Check Pods Manifest.lock */ = {
@@ -648,13 +644,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InHeart-Sleeping-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -687,6 +686,7 @@
 				3D94471820638F050056A492 /* XJSAddPatientViewController.m in Sources */,
 				3D9446FD206236150056A492 /* XJSPatientsManagementViewController.m in Sources */,
 				3D9447362068C7A10056A492 /* XJSTherapyTitleCell.m in Sources */,
+				3D3568372108701300F0F1FB /* XJSAgreementViewController.m in Sources */,
 				3D94472F2068C2BC0056A492 /* XJSTrainingCenterViewController.m in Sources */,
 				3D94471220625ED50056A492 /* ZWPullMenuCell.m in Sources */,
 				3D944704206240DA0056A492 /* XJSCommonsDefines.m in Sources */,
