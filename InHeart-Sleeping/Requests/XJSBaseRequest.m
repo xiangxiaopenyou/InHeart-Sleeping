@@ -29,7 +29,9 @@
         if ([responseObject[@"success"] boolValue]) {
             !handler ?: handler(responseObject[@"data"], nil);
         } else {
-            if ([responseObject[@"code"] integerValue] == 97) {
+            if ([responseObject[@"code"] integerValue] == 95 ||
+                [responseObject[@"code"] integerValue] == 97 ||
+                [responseObject[@"code"] integerValue] == 98) {
                 !handler ?: handler(nil, responseObject[@"message"]);
                 [[XJSUserManager sharedUserInfo] removeUserInfo];
                 [[NSNotificationCenter defaultCenter] postNotificationName:XJSLoginStatusDidChange object:@NO];
